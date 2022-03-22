@@ -1,2 +1,3 @@
-# start-react
-Basic Starter Project Setup for ReactJS
+# StartReact - ReactJS Base Project
+
+Basic Starter Project Setup for ReactJS!
