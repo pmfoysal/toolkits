@@ -1,6 +1,7 @@
-import ThemeProvider from '@context/themeProvider';
 import React, {useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
+import ThemeProvider from '@context/themeProvider';
+import StoreProvider from '@context/storeProvider';
 
 export default function AppWrapper({children}) {
    const author = {
@@ -18,7 +19,9 @@ export default function AppWrapper({children}) {
    return (
       <React.Fragment>
          <ThemeProvider>
-            <BrowserRouter>{children}</BrowserRouter>
+            <StoreProvider>
+               <BrowserRouter>{children}</BrowserRouter>
+            </StoreProvider>
          </ThemeProvider>
       </React.Fragment>
    );
