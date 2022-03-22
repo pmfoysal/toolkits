@@ -1,0 +1,22 @@
+{
+   "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+         "@app/*": ["app/*"],
+         "@coreComp/*": ["assets/components/core/*"],
+         "@baseComp/*": ["assets/components/base/*"],
+         "@pageComp/*": ["assets/components/page/*"],
+         "@coreStyle/*": ["assets/styles/core/*"],
+         "@baseStyle/*": ["assets/styles/base/*"],
+         "@pageStyle/*": ["assets/styles/page/*"],
+         "@commonStyle/*": ["assets/styles/common/*"],
+         "@image/*": ["assets/images/*"],
+         "@data/*": ["assets/data/*"],
+         "@context/*": ["customs/contexts/*"],
+         "@helper/*": ["customs/helpers/*"],
+         "@hook/*": ["customs/hooks/*"],
+         "@utility/*": ["customs/utilities/*"],
+         "@test/*": ["tests/*"]
+      }
+   }
+}
