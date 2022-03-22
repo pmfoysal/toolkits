@@ -1,3 +1,4 @@
+import ThemeProvider from '@context/themeProvider';
 import React, {useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -16,7 +17,9 @@ export default function AppWrapper({children}) {
 
    return (
       <React.Fragment>
-         <BrowserRouter>{children}</BrowserRouter>
+         <ThemeProvider>
+            <BrowserRouter>{children}</BrowserRouter>
+         </ThemeProvider>
       </React.Fragment>
    );
 }
