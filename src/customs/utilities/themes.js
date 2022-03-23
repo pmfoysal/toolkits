@@ -1,4 +1,4 @@
-import {green, blue} from './colorPalette';
+import {blue, green} from './colorPalette';
 
 const themes = {
    white: {
