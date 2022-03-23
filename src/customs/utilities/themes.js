@@ -1,3 +1,5 @@
+import {red} from './colorPalette';
+
 const themes = {
    white: {
       name: 'white',
