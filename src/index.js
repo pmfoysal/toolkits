@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import '@commonStyle/reset.scss';
 import AppWrapper from '@helper/appWrapper';
 import reportWebVitals from '@test/reportWebVitals';
+import * as serviceWorkerRegistration from '@test/serviceWorkerRegistration';
 
 ReactDOM.render(
    <React.StrictMode>
@@ -14,4 +15,5 @@ ReactDOM.render(
    document.querySelector("[data-app='pmfoysal']")
 );
 
+serviceWorkerRegistration.register();
 reportWebVitals();

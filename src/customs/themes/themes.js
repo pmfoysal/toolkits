@@ -1,5 +1,3 @@
-import {blue, green} from './colorPalette';
-
 const themes = {
    white: {
       name: 'white',
@@ -18,8 +16,12 @@ const themes = {
          },
       },
       back: {
-         main: blue[500],
-         sub: green[500],
+         accent: '#f08080',
+         card1: '#fdeaea',
+         card2: '#fad5d5',
+         brdr: '#cccccc',
+         main: '#ffffff',
+         sub: '#f5f7f9',
       },
    },
    black: {
@@ -39,8 +41,12 @@ const themes = {
          },
       },
       back: {
-         main: blue[500],
-         sub: green[500],
+         accent: '#556b2f',
+         card1: '#0e1208',
+         card2: '#1c2410',
+         brdr: '#606060',
+         main: '#0e1208',
+         sub: '#1c2410',
       },
    },
 };
