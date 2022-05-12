@@ -1,5 +1,5 @@
-import themes from 'customs/themes/themes';
-import detectTheme from '@utility/detectTheme';
+import themes from '@themes/themes';
+import detectTheme from '@utilities/detectTheme';
 import React, {createContext, useState, useEffect} from 'react';
 import {ThemeProvider as StyledTheme} from 'styled-components';
 

@@ -32,6 +32,7 @@
       "type": "source-code",
       "url": "https://github.com/pmfoysal/start-react"
    },
+   "cracoConfig": "src/configs/craco.config.js",
    "dependencies": {
       "@craco/craco": "^6.4.3",
       "@iconify/react": "^3.2.1",

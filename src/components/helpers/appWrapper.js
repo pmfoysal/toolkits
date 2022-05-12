@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import ThemeProvider from '@context/themeProvider';
-import StoreProvider from '@context/storeProvider';
+import StoreProvider from '@contexts/storeProvider';
+import ThemeProvider from '@contexts/themeProvider';
 
 export default function AppWrapper({children}) {
    const author = {
