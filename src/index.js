@@ -1,19 +1,20 @@
 import React from 'react';
-import App from '@app/app';
-import ReactDOM from 'react-dom';
-import '@commonStyle/reset.scss';
-import AppWrapper from '@helper/appWrapper';
-import reportWebVitals from '@test/reportWebVitals';
-import * as serviceWorkerRegistration from '@test/serviceWorkerRegistration';
+import App from 'app/app';
+import 'styles/scss/reset.scss';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from 'tests/reportWebVitals';
+import AppWrapper from 'components/helpers/appWrapper';
+import * as serviceWorkerRegistration from 'tests/serviceWorkerRegistration';
 
-ReactDOM.render(
+const pmApp = ReactDOM.createRoot(document.querySelector("[data-app='pmfoysal']"));
+
+pmApp.render(
    <React.StrictMode>
       <AppWrapper>
          <App />
       </AppWrapper>
-   </React.StrictMode>,
-   document.querySelector("[data-app='pmfoysal']")
+   </React.StrictMode>
 );
 
-serviceWorkerRegistration.register();
 reportWebVitals();
+serviceWorkerRegistration.register();
