@@ -8,7 +8,7 @@ function globalStyle() {
 
       *::selection {
          background-color: ${({theme}) => theme.back.accent};
-         color: ${({theme}) => theme.text.sub.head};
+         color: ${({theme}) => theme.text.main.head};
       }
 
       *::-webkit-scrollbar {
