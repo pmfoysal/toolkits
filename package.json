@@ -1,0 +1,40 @@
+{
+   "name": "pmphas12-server",
+   "version": "1.0.0",
+   "private": true,
+   "license": "LICENSE",
+   "readme": "README.md",
+   "markdown": "github",
+   "publisher": "@pmfoysal",
+   "description": "GroceryMenus - Modern Inventory Management Application Designed & Developed by @pmfoysal!",
+   "author": {
+      "name": "Foysal Ahmmed",
+      "email": "pmfoysal@gmail.com",
+      "url": "https://github.com/pmfoysal"
+   },
+   "categories": [
+      "Programming Languages",
+      "Data Science",
+      "Education",
+      "Language Packs",
+      "Machine Learning",
+      "Other"
+   ],
+   "keywords": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "expressjs",
+      "mongodb"
+   ],
+   "repository": {
+      "type": "source-code",
+      "url": "https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-pmfoysal"
+   },
+   "main": "index.js",
+   "dependencies": {},
+   "scripts": {
+      "start": "node index.js",
+      "serve": "nodemon index.js"
+   }
+}
