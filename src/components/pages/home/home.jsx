@@ -1,6 +1,7 @@
 import React from 'react';
 import NavButtons from '@shared/navButtons';
 import MainContainer from '@shared/mainContainer';
+import UserIcon from '@shared/userIcon';
 
 export default function Home() {
    return (
@@ -9,8 +10,8 @@ export default function Home() {
             Welcome to React Starter Project Home Page!
          </div>
          <MainContainer>
-            <div style={{padding: '5rem 0'}}>
-               <NavButtons />
+            <div style={{padding: '5rem'}}>
+               <UserIcon />
             </div>
          </MainContainer>
       </React.Fragment>
