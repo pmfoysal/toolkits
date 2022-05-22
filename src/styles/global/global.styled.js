@@ -27,6 +27,14 @@ function globalStyle() {
       *::-webkit-scrollbar-track {
          background-color: ${({theme}) => theme.back.card1};
       }
+
+      a {
+         color: ${({theme}) => theme.back.accent};
+
+         &:hover {
+            opacity: 0.85;
+         }
+      }
    `;
 }
 
