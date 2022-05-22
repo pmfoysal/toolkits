@@ -1,5 +1,5 @@
 import React from 'react';
-import Inputbox from '@shared/inputbox';
+import Button from '@shared/button';
 
 export default function Home() {
    return (
@@ -8,7 +8,7 @@ export default function Home() {
             Welcome to React Starter Project Home Page!
          </div>
          <div style={{padding: '10rem'}}>
-            <Inputbox name='first name' line='10' holder='ex: john' />
+            <Button name='see more' />
          </div>
       </React.Fragment>
    );
