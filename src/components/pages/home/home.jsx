@@ -1,7 +1,6 @@
 import React from 'react';
-import NavButtons from '@shared/navButtons';
-import MainContainer from '@shared/mainContainer';
 import UserIcon from '@shared/userIcon';
+import MainContainer from '@shared/mainContainer';
 
 export default function Home() {
    return (
