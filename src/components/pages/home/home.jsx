@@ -1,5 +1,5 @@
-import PageLink from '@shared/pageLink';
 import React from 'react';
+import NavLinks from '@shared/navLinks';
 
 export default function Home() {
    return (
@@ -8,7 +8,7 @@ export default function Home() {
             Welcome to React Starter Project Home Page!
          </div>
          <div style={{padding: '10rem'}}>
-            <PageLink name='home' link='/' />
+            <NavLinks />
          </div>
       </React.Fragment>
    );
