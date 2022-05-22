@@ -8,7 +8,7 @@ export default function Home() {
             Welcome to React Starter Project Home Page!
          </div>
          <div style={{padding: '10rem'}}>
-            <Inputbox name='first name' type='text' holder='ex: john' />
+            <Inputbox name='first name' line='10' holder='ex: john' />
          </div>
       </React.Fragment>
    );
