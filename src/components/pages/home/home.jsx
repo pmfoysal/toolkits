@@ -1,5 +1,6 @@
 import React from 'react';
-import NavLinks from '@shared/navLinks';
+import NavButtons from '@shared/navButtons';
+import MainContainer from '@shared/mainContainer';
 
 export default function Home() {
    return (
@@ -7,9 +8,11 @@ export default function Home() {
          <div style={{padding: '3rem', fontSize: '3rem', textAlign: 'center', fontWeight: 550}}>
             Welcome to React Starter Project Home Page!
          </div>
-         <div style={{padding: '10rem'}}>
-            <NavLinks />
-         </div>
+         <MainContainer>
+            <div style={{padding: '5rem 0'}}>
+               <NavButtons />
+            </div>
+         </MainContainer>
       </React.Fragment>
    );
 }
