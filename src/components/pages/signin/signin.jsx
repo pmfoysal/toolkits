@@ -4,9 +4,10 @@ import Inputbox from '@shared/inputbox';
 import Checkbox from '@shared/checkbox';
 import signinImage from '@images/signin.svg';
 import SocialSignin from '@shared/socialSignin';
-import React, {useEffect, useState} from 'react';
 import MainContainer from '@shared/mainContainer';
+import {StoreContext} from '@contexts/storeProvider';
 import emailPassSignin from 'customs/auth/emailPassSignin';
+import React, {useEffect, useState, useContext} from 'react';
 import {Link, Navigate, useLocation} from 'react-router-dom';
 import {
    AuthContainer,
@@ -21,7 +22,8 @@ import {
    AuthTitle,
 } from '@shared/auth.styled';
 
-export default function Signin({user}) {
+export default function Signin() {
+   const {user} = useContext(StoreContext);
    const location = useLocation();
    const [disable, setDisable] = useState(true);
    const [email, setEmail] = useState('');

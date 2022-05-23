@@ -7,10 +7,11 @@ import isEmail from '@validations/isEmail';
 import signupImage from '@images/signup.svg';
 import isString from '@validations/isString';
 import isNumber from '@validations/isNumber';
-import React, {useEffect, useState} from 'react';
 import isPassword from '@validations/isPassword';
 import MainContainer from '@shared/mainContainer';
+import {StoreContext} from '@contexts/storeProvider';
 import emailPassSignup from 'customs/auth/emailPassSignup';
+import React, {useEffect, useState, useContext} from 'react';
 import {Link, Navigate, useLocation} from 'react-router-dom';
 import {
    AuthContainer,
@@ -24,7 +25,8 @@ import {
    AuthTitle,
 } from '@shared/auth.styled';
 
-export default function Signup({user}) {
+export default function Signup() {
+   const {user} = useContext(StoreContext);
    const location = useLocation();
    const [firstName, setFirstName] = useState('');
    const [lastName, setLastName] = useState('');
