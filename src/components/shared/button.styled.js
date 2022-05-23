@@ -12,13 +12,18 @@ export const ButtonContainer = styled.button`
    ${({medium, small}) => setSize(medium, small)};
    ${({theme, sub, danger, success, neutral}) => setColor(theme, sub, danger, success, neutral)};
 
-   &:hover {
+   &:hover:not(:disabled) {
       opacity: 0.85;
    }
 
-   &:active {
+   &:active:not(:disabled) {
       transform: scale(0.95);
       opacity: 0.75;
+   }
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: default;
    }
 `;
 

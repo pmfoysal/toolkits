@@ -1,13 +1,16 @@
 import React from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
 import {ButtonContainer} from './button.styled';
+import {useLocation, useNavigate} from 'react-router-dom';
 
-export default function Button({name, wide, round, sub, danger, success, neutral, medium, small, link}) {
+export default function Button({name, wide, round, sub, danger, success, neutral, medium, small, link, handler, ...rest}) {
    const {pathname} = useLocation();
    const navigate = useNavigate();
 
    function clickHandler() {
-      if (link && pathname !== link) navigate(link);
+      if (handler) handler();
+      else {
+         if (link && pathname !== link) navigate(link);
+      }
    }
 
    return (
@@ -21,6 +24,7 @@ export default function Button({name, wide, round, sub, danger, success, neutral
          medium={medium}
          small={small}
          onClick={clickHandler}
+         {...rest}
       >
          {name}
       </ButtonContainer>

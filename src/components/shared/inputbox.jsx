@@ -2,8 +2,8 @@ import React from 'react';
 import {InputboxContainer} from './inputbox.styled';
 
 export default function Inputbox({name, type, value, handler, holder, line, ...rest}) {
-   function inputHandler() {
-      if (handler) handler();
+   function inputHandler(event) {
+      if (handler) handler(event);
       else return false;
    }
 
