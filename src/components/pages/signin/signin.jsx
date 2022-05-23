@@ -1,5 +1,4 @@
 import Button from '@shared/button';
-import {Link} from 'react-router-dom';
 import logo from '@icons/logo-main.svg';
 import Inputbox from '@shared/inputbox';
 import Checkbox from '@shared/checkbox';
@@ -7,6 +6,8 @@ import signinImage from '@images/signin.svg';
 import SocialSignin from '@shared/socialSignin';
 import React, {useEffect, useState} from 'react';
 import MainContainer from '@shared/mainContainer';
+import emailPassSignin from 'customs/auth/emailPassSignin';
+import {Link, Navigate, useLocation} from 'react-router-dom';
 import {
    AuthContainer,
    AuthForgetPara,
@@ -19,9 +20,9 @@ import {
    AuthPara,
    AuthTitle,
 } from '@shared/auth.styled';
-import emailPassSignin from 'customs/auth/emailPassSignin';
 
-export default function Signin() {
+export default function Signin({user}) {
+   const location = useLocation();
    const [disable, setDisable] = useState(true);
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -41,6 +42,11 @@ export default function Signin() {
       if (email && password) setDisable(false);
       else setDisable(true);
    }, [email, password]);
+
+   if (user?.uid) {
+      const from = location?.state?.from?.pathname || '/';
+      return <Navigate to={from} replace />;
+   }
 
    return (
       <AuthContainer>

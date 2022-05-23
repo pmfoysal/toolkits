@@ -1,6 +1,7 @@
 import {Icon} from '@iconify/react';
 import avatar from '@icons/user.svg';
 import React, {useState} from 'react';
+import userSignout from 'customs/auth/userSignout';
 import {
    UserIconContainer,
    UserIconImage,
@@ -52,7 +53,7 @@ export default function UserIcon({user, role}) {
                         manage products
                      </UserWindowLink>
                   )}
-                  <UserWindowButton>
+                  <UserWindowButton onClick={userSignout}>
                      <Icon icon='fa:sign-out' />
                      signout
                   </UserWindowButton>

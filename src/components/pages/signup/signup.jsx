@@ -1,11 +1,17 @@
-import React, {useEffect, useState} from 'react';
 import Button from '@shared/button';
-import {Link} from 'react-router-dom';
 import Inputbox from '@shared/inputbox';
 import Checkbox from '@shared/checkbox';
 import logo from '@icons/logo-main.svg';
+import isLink from '@validations/isLink';
+import isEmail from '@validations/isEmail';
 import signupImage from '@images/signup.svg';
+import isString from '@validations/isString';
+import isNumber from '@validations/isNumber';
+import React, {useEffect, useState} from 'react';
+import isPassword from '@validations/isPassword';
 import MainContainer from '@shared/mainContainer';
+import emailPassSignup from 'customs/auth/emailPassSignup';
+import {Link, Navigate, useLocation} from 'react-router-dom';
 import {
    AuthContainer,
    AuthForm,
@@ -17,14 +23,9 @@ import {
    AuthPara,
    AuthTitle,
 } from '@shared/auth.styled';
-import isString from '@validations/isString';
-import isEmail from '@validations/isEmail';
-import isPassword from '@validations/isPassword';
-import isLink from '@validations/isLink';
-import isNumber from '@validations/isNumber';
-import emailPassSignup from 'customs/auth/emailPassSignup';
 
-export default function Signup() {
+export default function Signup({user}) {
+   const location = useLocation();
    const [firstName, setFirstName] = useState('');
    const [lastName, setLastName] = useState('');
    const [email, setEmail] = useState('');
@@ -68,6 +69,11 @@ export default function Signup() {
       if (firstName && lastName && email && phone && image && password) setDisable(false);
       else setDisable(true);
    }, [firstName, lastName, email, phone, image, password]);
+
+   if (user?.uid) {
+      const from = location?.state?.from?.pathname || '/';
+      return <Navigate to={from} replace />;
+   }
 
    return (
       <AuthContainer>
