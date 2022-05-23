@@ -21,7 +21,8 @@
          "@helpers/*": ["components/helpers/*"],
          "@utilities/*": ["customs/utilities/*"],
          "@middlewares/*": ["customs/middlewares/*"],
-         "@validations/*": ["customs/validations/*"]
+         "@validations/*": ["customs/validations/*"],
+         "@dashboard": ["components/pages/dashboard"]
       }
    }
 }
