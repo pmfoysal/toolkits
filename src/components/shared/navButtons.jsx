@@ -5,8 +5,8 @@ import {NavButtonsContainer} from './navButtons.styled';
 export default function NavButtons() {
    return (
       <NavButtonsContainer>
-         <Button name='signin' sub round link='/signin' />
-         <Button name='signup' round link='/signup' />
+         <Button name='signin' sub neutral round link='/signin' />
+         <Button name='signup' round neutral link='/signup' />
       </NavButtonsContainer>
    );
 }

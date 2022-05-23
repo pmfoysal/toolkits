@@ -1,3 +1,4 @@
+import Header from '@shared/header';
 import Footer from '@shared/footer';
 import React, {Suspense} from 'react';
 import Toaster from '@helpers/toaster';
@@ -11,6 +12,7 @@ import {AddProduct, AddReview, EditProduct, EditReview, ManageAdmins} from '@das
 export default function App() {
    return (
       <React.Fragment>
+         <Header />
          <Suspense fallback={<PageLoader />}>
             <Routes>
                <Route path='/' element={<Home />} />

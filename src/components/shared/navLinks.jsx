@@ -1,6 +1,6 @@
 import React from 'react';
-import {NavLinksContainer} from './navLinks.styled';
 import PageLink from './pageLink';
+import {NavLinksContainer} from './navLinks.styled';
 
 export default function NavLinks() {
    return (
