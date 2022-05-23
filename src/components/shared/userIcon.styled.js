@@ -6,12 +6,13 @@ export const UserIconContainer = styled.div`
 `;
 
 export const UserIconImage = styled.img`
-   height: 4rem;
-   width: 4rem;
+   height: 4.5rem;
+   width: 4.5rem;
    border-radius: 100%;
    overflow: hidden;
    transition: 0.1s ease;
    cursor: pointer;
+   transform: scale(1.1);
 
    &:hover {
       opacity: 0.85;

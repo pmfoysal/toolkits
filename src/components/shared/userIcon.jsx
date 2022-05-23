@@ -1,4 +1,5 @@
 import {Icon} from '@iconify/react';
+import avatar from '@icons/user.svg';
 import React, {useState} from 'react';
 import {
    UserIconContainer,
@@ -12,9 +13,9 @@ import {
    UserWindowRole,
 } from './userIcon.styled';
 
-export default function UserIcon() {
+export default function UserIcon({user, role}) {
+   const admin = role === 'admin';
    const [active, setActive] = useState(false);
-   const admin = true;
 
    function clickHandler() {
       setActive(current => !current);
@@ -22,12 +23,12 @@ export default function UserIcon() {
 
    return (
       <UserIconContainer>
-         <UserIconImage src='https://avatars.githubusercontent.com/u/79983010?v=4' alt='user' onClick={clickHandler} />
+         <UserIconImage src={user?.photoURL || avatar} alt='user' onClick={clickHandler} />
          {active && (
             <UserIconWindow>
-               <UserWindowImage src='https://avatars.githubusercontent.com/u/79983010?v=4' alt='user' />
-               <UserWindowName>foysal ahmmed</UserWindowName>
-               <UserWindowRole>admin</UserWindowRole>
+               <UserWindowImage src={user?.photoURL || avatar} alt='user' />
+               <UserWindowName>{user?.displayName || 'unknown'}</UserWindowName>
+               <UserWindowRole>{role}</UserWindowRole>
                <UserWindowLinks>
                   <UserWindowLink to='/dashboard'>
                      <Icon icon='ic:round-dashboard' />

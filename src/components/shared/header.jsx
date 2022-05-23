@@ -1,19 +1,23 @@
-import React from 'react';
-import MainContainer from './mainContainer';
-import {HeaderContainer, HeaderPart1, HeaderPart2} from './header.styled';
 import Logo from './logo';
+import UserIcon from './userIcon';
+import NavLinks from './navLinks';
 import NavSearch from './navSearch';
 import NavButtons from './navButtons';
-import NavLinks from './navLinks';
+import React, {useContext} from 'react';
+import MainContainer from './mainContainer';
+import {StoreContext} from '@contexts/storeProvider';
+import {HeaderContainer, HeaderPart1, HeaderPart2} from './header.styled';
 
 export default function Header() {
+   const {user, role} = useContext(StoreContext);
+
    return (
       <HeaderContainer>
          <HeaderPart1>
             <MainContainer>
                <Logo />
                <NavSearch />
-               <NavButtons />
+               {user.uid ? <UserIcon user={user} role={role} /> : <NavButtons />}
             </MainContainer>
          </HeaderPart1>
          <HeaderPart2>
