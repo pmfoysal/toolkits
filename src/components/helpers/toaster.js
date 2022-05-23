@@ -1,5 +1,5 @@
 import React from 'react';
-import {ToastContainer} from 'react-toastify';
+import {ToastContainer, Zoom} from 'react-toastify';
 
 export default function Toaster() {
    return (
@@ -13,6 +13,7 @@ export default function Toaster() {
          pauseOnFocusLoss={false}
          draggable
          pauseOnHover={false}
+         transition={Zoom}
       />
    );
 }

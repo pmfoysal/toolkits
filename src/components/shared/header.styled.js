@@ -6,11 +6,12 @@ export const HeaderContainer = styled.header`
    position: sticky;
    top: 0;
    left: 0;
+   z-index: 15;
 `;
 
 export const HeaderPart1 = styled.div`
    width: 100%;
-   padding: 2.5rem 0;
+   padding: 2rem 0;
 
    & > * {
       display: grid;
@@ -24,6 +25,6 @@ export const HeaderPart1 = styled.div`
 
 export const HeaderPart2 = styled.div`
    width: 100%;
-   padding: 2rem 0;
+   padding: 1.5rem 0;
    background-color: ${({theme}) => theme.back.page};
 `;

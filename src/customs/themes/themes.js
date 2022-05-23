@@ -17,8 +17,8 @@ const themes = {
       },
       back: {
          accent: '#00bfff',
-         card0: '#d5f4ff',
-         card1: '#aaeaff',
+         card0: '#f0faff',
+         card1: '#e0f5ff',
          foot1: '#80dfff',
          foot2: '#00202a',
          border: '#cccccc',
