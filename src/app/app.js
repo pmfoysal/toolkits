@@ -1,6 +1,7 @@
 import Footer from '@shared/footer';
 import React, {Suspense} from 'react';
 import Toaster from '@helpers/toaster';
+import PageLoader from '@helpers/pageLoader';
 import {Route, Routes} from 'react-router-dom';
 import {Portfolio, Products, Purchase, Signin, Signup} from '@pages';
 import {Blogs, Contact, Dashboard, Forget, Home, NotFound} from '@pages';
@@ -10,7 +11,7 @@ import {AddProduct, AddReview, EditProduct, EditReview, ManageAdmins} from '@das
 export default function App() {
    return (
       <React.Fragment>
-         <Suspense fallback={<h1>Loading...</h1>}>
+         <Suspense fallback={<PageLoader />}>
             <Routes>
                <Route path='/' element={<Home />} />
                <Route path='/blogs' element={<Blogs />} />
