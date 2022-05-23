@@ -8,6 +8,7 @@ import {
    ContactContainer,
    ContactContent,
    ContactForm,
+   ContactFormBg,
    ContactFormButtons,
    ContactFormInputGroup,
    ContactLine,
@@ -60,19 +61,21 @@ export default function Contact() {
                      <ContactPara>
                         Suitable for Hardware Market, Store, Tools, Parts, Online Shop related shopping Website.
                      </ContactPara>
-                     <ContactForm>
-                        <ContactFormInputGroup>
-                           <Inputbox name='your name' holder='john doe' type='text' value={name} />
-                           <Inputbox name='your email' holder='john@doe.com' type='email' value={email} />
-                        </ContactFormInputGroup>
-                        <Inputbox name='your address' holder='dhaka, bangladesh' type='text' value={address} />
-                        <Inputbox name='your subject' type='text' holder='your awesome subject here' value={subject} />
-                        <Inputbox name='your message' line='10' holder='your awesome message here' value={message} />
-                        <ContactFormButtons>
-                           <Button name='reset' medium neutral />
-                           <Button name='send' medium />
-                        </ContactFormButtons>
-                     </ContactForm>
+                     <ContactFormBg>
+                        <ContactForm>
+                           <ContactFormInputGroup>
+                              <Inputbox name='your name' holder='john doe' type='text' value={name} />
+                              <Inputbox name='your email' holder='john@doe.com' type='email' value={email} />
+                           </ContactFormInputGroup>
+                           <Inputbox name='your address' holder='dhaka, bangladesh' type='text' value={address} />
+                           <Inputbox name='your subject' type='text' holder='your awesome subject here' value={subject} />
+                           <Inputbox name='your message' line='10' holder='your awesome message here' value={message} />
+                           <ContactFormButtons>
+                              <Button name='reset' medium neutral />
+                              <Button name='send' medium />
+                           </ContactFormButtons>
+                        </ContactForm>
+                     </ContactFormBg>
                   </ContactTouchArea>
                </ContactContent>
             </MainContainer>

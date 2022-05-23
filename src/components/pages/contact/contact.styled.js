@@ -20,12 +20,19 @@ export const ContactTouchArea = styled.article`
    width: 100%;
 `;
 
+export const ContactFormBg = styled.div`
+   width: 100%;
+   margin-top: 5rem;
+   padding: 8rem;
+   border-radius: 2.5rem;
+   background-color: ${({theme}) => theme.back.card0};
+`;
+
 export const ContactForm = styled.div`
    display: flex;
    flex-direction: column;
    gap: 2.5rem;
    width: 100%;
-   margin-top: 5rem;
    padding: 5rem 6rem;
    border-radius: 2.5rem;
    background-color: ${({theme}) => theme.back.page};
