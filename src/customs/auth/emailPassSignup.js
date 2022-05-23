@@ -10,6 +10,9 @@ export default function emailPassSignup(data) {
          if (result.user.uid) {
             toast.update(tId, {
                render: 'Account Created! Now Updating Profile...!',
+               type: 'success',
+               isLoading: false,
+               autoClose: 3000,
             });
             updateProfile(tId, image, name);
          }
