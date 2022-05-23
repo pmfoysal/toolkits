@@ -1,0 +1,8 @@
+import popupSignin from './popupSignin';
+import {GoogleAuthProvider} from 'firebase/auth';
+
+const provider = new GoogleAuthProvider();
+
+export default function googleSignin() {
+   popupSignin(provider);
+}
