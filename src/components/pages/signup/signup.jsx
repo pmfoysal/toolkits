@@ -23,7 +23,7 @@ export default function Signup() {
       <AuthContainer>
          <MainContainer>
             <AuthImage>
-               <img src={signupImage} alt='signin' />
+               <img src={signupImage} alt='signup' />
             </AuthImage>
             <AuthForm>
                <AuthLogo src={logo} alt='brand-logo' />
