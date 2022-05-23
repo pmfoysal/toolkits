@@ -12,4 +12,5 @@ module.exports = {
    Products: lazy(() => import('./products/products')),
    Dashboard: lazy(() => import('./dashboard/dashboard')),
    Portfolio: lazy(() => import('./portfolio/portfolio')),
+   BlogDetails: lazy(() => import('./blogDetails/blogDetails')),
 };

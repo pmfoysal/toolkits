@@ -4,8 +4,8 @@ import React, {Suspense} from 'react';
 import Toaster from '@helpers/toaster';
 import PageLoader from '@helpers/pageLoader';
 import {Route, Routes} from 'react-router-dom';
-import {Portfolio, Products, Purchase, Signin, Signup} from '@pages';
 import {Blogs, Contact, Dashboard, Forget, Home, NotFound} from '@pages';
+import {BlogDetails, Portfolio, Products, Purchase, Signin, Signup} from '@pages';
 import {ManageOrders, ManageProducts, ManageReviews, UserProfile} from '@dashboard';
 import {AddProduct, AddReview, EditProduct, EditReview, ManageAdmins} from '@dashboard';
 
@@ -24,6 +24,7 @@ export default function App() {
                <Route path='/products' element={<Products />} />
                <Route path='/purchase' element={<Purchase />} />
                <Route path='/portfolio' element={<Portfolio />} />
+               <Route path='/blogs/:id' element={<BlogDetails />} />
                <Route path='/dashboard' element={<Dashboard />}>
                   <Route index element={<UserProfile />} />
                   <Route path='add/product' element={<AddProduct />} />
