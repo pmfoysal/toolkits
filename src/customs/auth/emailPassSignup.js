@@ -1,18 +1,17 @@
 import {toast} from 'react-toastify';
 import auth from '@configs/firebase.config';
-import {signInWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
 
-export default function emailPassSignin(email, password) {
+export default function emailPassSignup(data) {
+   const {email, password, image, name} = data;
    const tId = toast.loading('Please Wait! Connecting to The Server...');
-   signInWithEmailAndPassword(auth, email, password)
+   createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
          if (result.user.uid) {
             toast.update(tId, {
-               render: 'You Have Successfully Signed in!',
-               type: 'success',
-               isLoading: false,
-               autoClose: 3000,
+               render: 'Account Created! Now Updating Profile...!',
             });
+            updateProfile(tId, image, name);
          }
       })
       .catch(error => {
@@ -24,3 +23,9 @@ export default function emailPassSignin(email, password) {
          });
       });
 }
+
+function updateProfile(tId, image, name) {
+   getAccessToken(auth?.currentUser?.email);
+}
+
+function getAccessToken(email) {}
