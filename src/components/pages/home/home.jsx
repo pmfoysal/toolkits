@@ -1,6 +1,5 @@
 import React from 'react';
 import MainContainer from '@shared/mainContainer';
-import NavSearch from '@shared/navSearch';
 
 export default function Home() {
    return (

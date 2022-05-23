@@ -5,6 +5,7 @@ import signinImage from '@images/signin.svg';
 import MainContainer from '@shared/mainContainer';
 import {
    AuthContainer,
+   AuthForgetPara,
    AuthForm,
    AuthHead,
    AuthImage,
@@ -17,6 +18,7 @@ import {
 import Inputbox from '@shared/inputbox';
 import Button from '@shared/button';
 import SocialSignin from '@shared/socialSignin';
+import Checkbox from '@shared/checkbox';
 
 export default function Signin() {
    return (
@@ -35,6 +37,10 @@ export default function Signin() {
                <AuthInputArea>
                   <Inputbox name='your email' holder='name@domain.com' type='email' value='' />
                   <Inputbox name='password' holder='********' type='password' value='' />
+                  <AuthForgetPara>
+                     <Checkbox>Remember me!</Checkbox>
+                     <Link to='/forget'>forget password?</Link>
+                  </AuthForgetPara>
                   <Button name='signin' round />
                </AuthInputArea>
                <AuthOr>

@@ -82,6 +82,13 @@ export const AuthInputArea = styled.div`
    width: 100%;
 `;
 
+export const AuthInputGroup = styled.div`
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 1.5rem;
+`;
+
 export const AuthOr = styled.div`
    width: 100%;
    display: flex;
@@ -104,4 +111,11 @@ export const AuthOr = styled.div`
       color: ${({theme}) => theme.text.main.head};
       opacity: 0.5;
    }
+`;
+
+export const AuthForgetPara = styled.p`
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
 `;
