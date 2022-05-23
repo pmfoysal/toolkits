@@ -1,3 +1,4 @@
+import Button from '@shared/button';
 import React from 'react';
 import {ContactCardButton, ContactCardContainer, ContactCardIcon, ContactCardPara, ContactCardTitle} from './contactCard.styled';
 
@@ -9,7 +10,9 @@ export default function ContactCard({data}) {
          <ContactCardIcon icon={icon} />
          <ContactCardTitle>{title}</ContactCardTitle>
          <ContactCardPara>{para}</ContactCardPara>
-         <ContactCardButton>{button.name}</ContactCardButton>
+         <br />
+         <br />
+         <Button name={button.name} sub round />
       </ContactCardContainer>
    );
 }
