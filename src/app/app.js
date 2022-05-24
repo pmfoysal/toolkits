@@ -9,7 +9,7 @@ import {StoreContext} from '@contexts/storeProvider';
 import {Blogs, Contact, Dashboard, Forget, Home, NotFound} from '@pages';
 import {BlogDetails, Portfolio, Products, Purchase, Signin, Signup} from '@pages';
 import {ManageOrders, ManageProducts, ManageReviews, UserProfile} from '@dashboard';
-import {AddProduct, AddReview, EditProduct, EditReview, ManageAdmins} from '@dashboard';
+import {AddProduct, AddReview, EditProduct, EditReview, ManageUsers} from '@dashboard';
 
 export default function App() {
    const {user, role} = useContext(StoreContext);
@@ -30,7 +30,6 @@ export default function App() {
                <Route path='/purchase' element={<RequireUser user={user} then={<Purchase />} />} />
                <Route path='/dashboard' element={<RequireUser user={user} then={<Dashboard />} />}>
                   <Route index element={<UserProfile />} />
-                  <Route path='profile' element={<UserProfile />} />
                   <Route path='manage/orders' element={<ManageOrders role={role} />} />
                   <Route path='manage/reviews' element={<ManageReviews role={role} />} />
                   {role === 'user' && (
@@ -42,7 +41,7 @@ export default function App() {
                   {role === 'admin' && (
                      <React.Fragment>
                         <Route path='add/product' element={<AddProduct />} />
-                        <Route path='manage/admins' element={<ManageAdmins />} />
+                        <Route path='manage/users' element={<ManageUsers />} />
                         <Route path='edit/product/:id' element={<EditProduct />} />
                         <Route path='manage/products' element={<ManageProducts />} />
                      </React.Fragment>
