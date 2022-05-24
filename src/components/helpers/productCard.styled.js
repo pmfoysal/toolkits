@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductCardContainer = styled.summary`
-   width: 35rem;
+   width: 100%;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
    transition: 0.1s ease;
@@ -81,6 +81,11 @@ export const ProductCardTags = styled.p`
       line-height: inherit;
       color: inherit;
       font-size: 1.7rem;
+   }
+
+   span {
+      font-size: 1.5rem;
+      text-transform: lowercase;
    }
 
    &.price {

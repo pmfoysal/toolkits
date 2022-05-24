@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from '@shared/button';
+import ImgLoader from '@shared/imgLoader';
+import productData from '@databases/productData';
 import {
    ProductCardContainer,
    ProductCardImage,
@@ -9,8 +11,6 @@ import {
    ProductCardTexts,
    ProductCardTitle,
 } from './productCard.styled';
-import productData from '@databases/productData';
-import ImgLoader from '@shared/imgLoader';
 
 export default function ProductCard() {
    const data = productData[0];
@@ -29,17 +29,19 @@ export default function ProductCard() {
                <ProductCardTags>
                   <strong>required: </strong>
                   {required}
+                  <span>pcs</span>
                </ProductCardTags>
                <ProductCardTags>
                   <strong>available: </strong>
                   {available}
+                  <span>pcs</span>
                </ProductCardTags>
             </ProductCardTagsGroup>
             <ProductCardTags className='price'>
                ${price}
                <span>/pcs</span>
             </ProductCardTags>
-            <Button name='order now' medium />
+            <Button name='order now' />
          </ProductCardTexts>
       </ProductCardContainer>
    );
