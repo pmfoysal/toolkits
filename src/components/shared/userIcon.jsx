@@ -39,16 +39,16 @@ export default function UserIcon({user, role}) {
                      <Icon icon='fa:user-circle-o' />
                      my profile
                   </UserWindowLink>
-                  <UserWindowLink to='/dashboard/orders'>
+                  <UserWindowLink to='/dashboard/manage/orders'>
                      <Icon icon='bi:cart-check-fill' />
                      {admin ? 'manage orders' : 'my orders'}
                   </UserWindowLink>
-                  <UserWindowLink to='/dashboard/reviews'>
+                  <UserWindowLink to='/dashboard/manage/reviews'>
                      <Icon icon='fa6-solid:file-pen' />
                      {admin ? 'manage reviews' : 'my reviews'}
                   </UserWindowLink>
                   {admin && (
-                     <UserWindowLink to='/dashboard/products'>
+                     <UserWindowLink to='/dashboard/manage/products'>
                         <Icon icon='fa-solid:cart-arrow-down' />
                         manage products
                      </UserWindowLink>
