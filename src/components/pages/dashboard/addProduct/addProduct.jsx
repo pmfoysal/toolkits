@@ -1,9 +1,11 @@
 import Button from '@shared/button';
+import React, {useState} from 'react';
 import Inputbox from '@shared/inputbox';
-import React from 'react';
 import {AddProductContainer, AddProductForm, AddProductInputGroup, AddProductTitle} from './addProduct.styled';
 
 export default function AddProduct() {
+   const [disable, setDisable] = useState(true);
+
    return (
       <AddProductContainer>
          <AddProductTitle>add a new product</AddProductTitle>
@@ -15,7 +17,7 @@ export default function AddProduct() {
                <Inputbox name='available' type='number' value='' />
             </AddProductInputGroup>
             <Inputbox name='product description' line='10' value='' />
-            <Button name='add product' />
+            <Button name='add product' disabled={disable} />
          </AddProductForm>
       </AddProductContainer>
    );

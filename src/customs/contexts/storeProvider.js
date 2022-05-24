@@ -7,7 +7,7 @@ export const StoreContext = createContext();
 export default function StoreProvider({children}) {
    const [store, setStore] = useState({});
    const [user, setUser] = useState({});
-   const [role, setRole] = useState('admin');
+   const [role, setRole] = useState('user');
 
    useEffect(() => {
       onAuthStateChanged(auth, u => {
