@@ -44,4 +44,5 @@ export const DasboardContent = styled.div`
    border-radius: 2.5rem;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
+   align-self: flex-start;
 `;
