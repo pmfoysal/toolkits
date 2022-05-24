@@ -1,5 +1,7 @@
 import React from 'react';
 import {Icon} from '@iconify/react';
+import ProjectCard from '@helpers/projectCard';
+import projectData from '@databases/projectData';
 import MainContainer from '@shared/mainContainer';
 import {
    PortfolioCard,
@@ -12,12 +14,8 @@ import {
    PortfolioCardRole,
    PortfolioContainer,
    PortfolioEmail,
-   PortfolioProjectCard,
    PortfolioProjects,
-   ProjectCardImage,
 } from './portfolio.styled';
-import ImgLoader from '@shared/imgLoader';
-import ProjectCard from '@helpers/projectCard';
 
 export default function Portfolio() {
    return (
@@ -84,9 +82,9 @@ export default function Portfolio() {
                      <span className='title'>my projects</span>
                   </PortfolioCardPara>
                   <PortfolioProjects>
-                     <ProjectCard />
-                     <ProjectCard />
-                     <ProjectCard />
+                     {projectData.map(data => (
+                        <ProjectCard data={data} key={data.id} />
+                     ))}
                   </PortfolioProjects>
                </PortfolioCard>
             </MainContainer>

@@ -1,24 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react';
 import ImgLoader from '@shared/imgLoader';
+import React, {useEffect, useRef, useState} from 'react';
 import {ProjectCardContainer, ProjectCardImage, ProjectCardText} from './projectCard.styled';
 
-export default function ProjectCard() {
+export default function ProjectCard({data}) {
    const tagRef = useRef();
    const [size, setSize] = useState(0);
-
-   const data = {
-      name: 'GroceryMenus',
-      src: 'https://raw.githubusercontent.com/pmfoysal/data/main/images/project/project-011.png',
-      link: 'https://pmphas11.web.app',
-   };
 
    const {name, link, src} = data;
 
    useEffect(() => {
       const parent = tagRef.current.offsetHeight;
       const child = tagRef.current.querySelector('img').offsetHeight;
-      setSize(child - parent);
-   }, []);
+      if (parent < child) setSize(child - parent);
+      else setSize(0);
+   }, [tagRef.current]);
 
    return (
       <ProjectCardContainer href={link} target='_blank' size={size}>

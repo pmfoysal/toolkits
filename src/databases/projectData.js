@@ -19,9 +19,9 @@ const projectData = [
    },
    {
       id: 'project-004',
-      name: 'Airshoes',
-      link: 'https://pm-phero-as9.netlify.app',
-      src: 'https://raw.githubusercontent.com/pmfoysal/data/main/images/project/project-008.png',
+      name: 'SmartShop',
+      link: 'https://pm-phero-as8.netlify.app',
+      src: 'https://raw.githubusercontent.com/pmfoysal/data/main/images/project/project-004.png',
    },
    {
       id: 'project-005',
@@ -36,3 +36,5 @@ const projectData = [
       src: 'https://raw.githubusercontent.com/pmfoysal/data/main/images/project/project-006.png',
    },
 ];
+
+export default projectData;

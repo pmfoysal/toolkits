@@ -23,7 +23,7 @@ export const ProjectCardImage = styled.figure`
    background-color: ${({theme}) => theme.back.page};
 
    img {
-      transition: 2s linear;
+      transition: 1.5s linear;
       width: 100%;
       height: unset;
       object-fit: unset;
