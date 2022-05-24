@@ -15,7 +15,7 @@ export const ManageReviewsHeader = styled.thead`
    tr {
       width: 100%;
       display: grid;
-      grid-template-columns: 7rem 15rem 1fr 12rem;
+      grid-template-columns: 7rem 15rem 1fr 13rem;
       gap: 1rem;
       justify-items: flex-start;
    }
@@ -37,7 +37,7 @@ export const ManageReviewsBody = styled.tbody`
       padding: 0.8rem 1.5rem;
       width: 100%;
       display: grid;
-      grid-template-columns: 7rem 15rem 1fr 12rem;
+      grid-template-columns: 7rem 15rem 1fr 13rem;
       gap: 1rem;
       justify-items: flex-start;
 

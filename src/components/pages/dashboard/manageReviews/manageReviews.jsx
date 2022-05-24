@@ -27,8 +27,8 @@ export default function ManageReviews() {
                      <td>12 May, 2022</td>
                      <td>Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quae, Ex Explicabo. Praesentium...</td>
                      <td>
-                        <Button name='edit' small neutral />
-                        <Button name='delete' small danger />
+                        {!admin && <Button name='edit' small neutral />}
+                        <Button name={admin ? 'delete now' : 'delete'} small danger />
                      </td>
                   </tr>
                ))}

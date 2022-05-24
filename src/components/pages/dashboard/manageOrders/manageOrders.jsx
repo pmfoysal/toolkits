@@ -6,8 +6,32 @@ import {ManageOrdersBody, ManageOrdersContainer, ManageOrdersContent, ManageOrde
 export default function ManageOrders() {
    const {role} = useContext(StoreContext);
    const admin = role === 'admin';
+   const status = 'shipped';
 
    const array = [1, 2, 3, 4, 5];
+
+   function getActions() {
+      if (admin) {
+         if (status === 'unpaid') {
+            return <Button name='delete now' small danger />;
+         } else if (status === 'pending') {
+            return <Button name='ship now' small />;
+         }
+         return <Button name='completed' success small />;
+      } else {
+         if (status === 'unpaid') {
+            return (
+               <React.Fragment>
+                  <Button name='cancel' small danger />
+                  <Button name='payment' small />
+               </React.Fragment>
+            );
+         } else if (status === 'pending') {
+            return <Button name='processing' small neutral />;
+         }
+         return <Button name='completed' success small />;
+      }
+   }
 
    return (
       <ManageOrdersContainer>
@@ -33,11 +57,8 @@ export default function ManageOrders() {
                      <td>10</td>
                      <td>20</td>
                      <td>200</td>
-                     <td>pending</td>
-                     <td>
-                        <Button name='cancel' small neutral />
-                        <Button name='payment' small />
-                     </td>
+                     <td>{status}</td>
+                     <td>{getActions()}</td>
                   </tr>
                ))}
             </ManageOrdersBody>
