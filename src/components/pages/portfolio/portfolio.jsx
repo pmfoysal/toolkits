@@ -11,8 +11,13 @@ import {
    PortfolioCardPara,
    PortfolioCardRole,
    PortfolioContainer,
-   PortfolioContent,
+   PortfolioEmail,
+   PortfolioProjectCard,
+   PortfolioProjects,
+   ProjectCardImage,
 } from './portfolio.styled';
+import ImgLoader from '@shared/imgLoader';
+import ProjectCard from '@helpers/projectCard';
 
 export default function Portfolio() {
    return (
@@ -23,7 +28,8 @@ export default function Portfolio() {
                   <PortfolioCardLeft>
                      <PortfolioCardImage src='https://avatars.githubusercontent.com/u/79983010?v=4' alt='site-author' />
                      <PortfolioCardName>foysal ahmmed</PortfolioCardName>
-                     <PortfolioCardRole>react developer</PortfolioCardRole>
+                     <PortfolioCardRole>mern developer</PortfolioCardRole>
+                     <PortfolioEmail>pmfoysal@gmail.com</PortfolioEmail>
                      <PortfolioCardIcons>
                         <PortfolioCardIcon href='https://facebook.com/pmfoysalz' target='_blank'>
                            <Icon icon='cib:facebook-f' />
@@ -45,14 +51,43 @@ export default function Portfolio() {
                   <PortfolioCardPara>
                      <span className='title'>about me</span>
                      <br />
-                     Hi, I am <span className='name'>Foysal Ahmmed</span>, a Bengali based Web Developer & Designer. Currently I
-                     am focusing on Full Stack & MERN Stack Development. I have completed 12 years of education based on Science
-                     Department. Last 1.5 years I have learned many Languages, Tools & Technologies like HTML, CSS, JavaScript,
-                     ReactJS, NodeJS, ExpressJS, MongoDB, GitHub, Netlify, Yarn, NPM, Visual Studio Code etc. I have completed 55+
-                     projects with the help of these Technologies. I have 1.5+ years of Coding Experience with Bug Fixing. I have
-                     few knowledge about Java, Android Studio, NextJS, ReduxJS. I am an experienced Web Development Specialist
-                     with a demonstrated history of working in the Computer Software Industry!
+                     Hi, I am <strong>Foysal Ahmmed</strong>, a Bengali based Web Developer & Designer. Currently I am focusing on
+                     MERN Stack Development, next will be FullStack Development. I have completed 12 years of education based on
+                     educational system of Bangladesh. Last 1.5 years, I have learned many Languages, Tools & Technologies. I have
+                     completed 55+ small projects recently and have 1.5 years of Coding Experience with Bug Fixing. My dream is to
+                     work as a Software Engineer in the Computer Software Industry.
                   </PortfolioCardPara>
+                  <PortfolioCardPara>
+                     <span className='title'>my skills</span>
+                     <br />
+                     <strong>OS: </strong> Windows, Android. <br />
+                     <strong>Languages: </strong> HTML, CSS, JavaScript, TypeScript, Markdown. <br />
+                     <strong>CLI: </strong> CMD, Powershell, Git Bash, MongoDB Compass, Postman, ZSH. <br />
+                     <strong>Hosting: </strong> GitHub Pages, Netlify, Firebase, Heroku. Database: MongoDB, Firebase. <br />
+                     <strong>Authentication: </strong> Email, Google, Facebook, Github, Microsoft, Twitter. <br />
+                     <strong>Authorization: </strong> JSON Web Token (JWT). <br />
+                     <strong>Version Control: </strong> Git, GitHub. <br />
+                     <strong>Library/Frameworks: </strong> SASS, Bootstrap, TailwindCSS, CSS Module, Styled Components, ReactJS,
+                     ReduxJS, ExpressJS, NodeJS. <br />
+                     <strong>Softwares: </strong> Adobe XD, PhotoShop, Illustrator, Figma, VS Code, Atom, Brackets, Sublime,
+                     GitHub Desktop, Slack, Discord, MS Office.
+                  </PortfolioCardPara>
+                  <PortfolioCardPara>
+                     <span className='title'>education</span>
+                     <br />
+                     <strong>higher secondary certificate (HSC)</strong>
+                     <br />
+                     <strong>institute: </strong> Milestone College, Dhaka. <br />
+                     <strong>GPA: </strong> 4.83 out of 5.00
+                  </PortfolioCardPara>
+                  <PortfolioCardPara>
+                     <span className='title'>my projects</span>
+                  </PortfolioCardPara>
+                  <PortfolioProjects>
+                     <ProjectCard />
+                     <ProjectCard />
+                     <ProjectCard />
+                  </PortfolioProjects>
                </PortfolioCard>
             </MainContainer>
          </PortfolioContainer>

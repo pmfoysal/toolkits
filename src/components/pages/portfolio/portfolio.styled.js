@@ -108,6 +108,7 @@ export const PortfolioCardPara = styled.p`
    flex-grow: 1;
    color: ${({theme}) => theme.text.main.para};
    line-height: 1.6;
+   width: 100%;
 
    .title {
       font-size: 2rem;
@@ -136,4 +137,28 @@ export const PortfolioCardPara = styled.p`
       font-size: inherit;
       color: inherit;
    }
+
+   strong {
+      font-weight: 700;
+      line-height: inherit;
+      font-size: inherit;
+      color: inherit;
+      text-transform: capitalize;
+   }
+`;
+
+export const PortfolioEmail = styled.p`
+   font-weight: 550;
+   color: ${({theme}) => theme.text.main.para};
+   margin-top: 0.75rem;
+   opacity: 0.9;
+   text-transform: lowercase;
+   text-align: center;
+`;
+
+export const PortfolioProjects = styled.div`
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 3rem;
 `;
