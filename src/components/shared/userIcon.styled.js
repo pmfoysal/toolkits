@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const UserIconContainer = styled.div`
@@ -70,7 +70,7 @@ export const UserWindowLinks = styled.nav`
    flex-direction: column;
 `;
 
-export const UserWindowLink = styled(NavLink)`
+export const UserWindowLink = styled(Link)`
    display: flex;
    align-items: center;
    gap: 0.75rem;

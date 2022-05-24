@@ -30,6 +30,7 @@ export default function App() {
                <Route path='/purchase' element={<RequireUser user={user} then={<Purchase />} />} />
                <Route path='/dashboard' element={<RequireUser user={user} then={<Dashboard />} />}>
                   <Route index element={<UserProfile />} />
+                  <Route path='profile' element={<UserProfile />} />
                   <Route path='manage/orders' element={<ManageOrders role={role} />} />
                   <Route path='manage/reviews' element={<ManageReviews role={role} />} />
                   {role === 'user' && (

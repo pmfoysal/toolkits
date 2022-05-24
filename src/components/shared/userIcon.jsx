@@ -13,10 +13,16 @@ import {
    UserWindowName,
    UserWindowRole,
 } from './userIcon.styled';
+import {useLocation} from 'react-router-dom';
 
 export default function UserIcon({user, role}) {
    const admin = role === 'admin';
+   const {pathname} = useLocation();
    const [active, setActive] = useState(false);
+
+   function setClassName(link) {
+      return pathname === link ? 'active' : '';
+   }
 
    function clickHandler() {
       setActive(current => !current);
@@ -31,24 +37,24 @@ export default function UserIcon({user, role}) {
                <UserWindowName>{user?.displayName || 'unknown'}</UserWindowName>
                <UserWindowRole>{role}</UserWindowRole>
                <UserWindowLinks>
-                  <UserWindowLink to='/dashboard'>
+                  <UserWindowLink to='/dashboard' className={setClassName('/dashboard')}>
                      <Icon icon='ic:round-dashboard' />
                      dashboard
                   </UserWindowLink>
-                  <UserWindowLink to='/dashboard/profile'>
+                  <UserWindowLink to='/dashboard/profile' className={setClassName('/dashboard/profile')}>
                      <Icon icon='fa:user-circle-o' />
                      my profile
                   </UserWindowLink>
-                  <UserWindowLink to='/dashboard/manage/orders'>
+                  <UserWindowLink to='/dashboard/manage/orders' className={setClassName('/dashboard/manage/orders')}>
                      <Icon icon='bi:cart-check-fill' />
                      {admin ? 'manage orders' : 'my orders'}
                   </UserWindowLink>
-                  <UserWindowLink to='/dashboard/manage/reviews'>
+                  <UserWindowLink to='/dashboard/manage/reviews' className={setClassName('/dashboard/manage/reviews')}>
                      <Icon icon='fa6-solid:file-pen' />
                      {admin ? 'manage reviews' : 'my reviews'}
                   </UserWindowLink>
                   {admin && (
-                     <UserWindowLink to='/dashboard/manage/products'>
+                     <UserWindowLink to='/dashboard/manage/products' className={setClassName('/dashboard/manage/products')}>
                         <Icon icon='fa-solid:cart-arrow-down' />
                         manage products
                      </UserWindowLink>

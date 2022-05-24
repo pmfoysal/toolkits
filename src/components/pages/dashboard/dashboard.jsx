@@ -18,7 +18,10 @@ export default function Dashboard() {
       <DasboardContainer>
          <MainContainer>
             <DashboardNav>
-               <DashboardNavLink to='/dashboard' className={getClassName('/dashboard')}>
+               <DashboardNavLink
+                  to='/dashboard'
+                  className={`${getClassName('/dashboard')} ${getClassName('/dashboard/profile')}`}
+               >
                   my profile
                </DashboardNavLink>
                {admin ? (
