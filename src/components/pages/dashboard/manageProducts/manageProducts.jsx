@@ -1,11 +1,9 @@
-import Button from '@shared/button';
 import React from 'react';
+import Button from '@shared/button';
 import {ManageProductsBody, ManageProductsContainer, ManageProductsContent, ManageProductsHeader} from './manageProducts.styled';
 
 export default function ManageProducts() {
    const array = [1, 2, 3, 4, 5];
-
-   function getActions() {}
 
    return (
       <ManageProductsContainer>

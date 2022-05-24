@@ -1,5 +1,42 @@
 import React from 'react';
+import Button from '@shared/button';
+import {ManageUsersBody, ManageUsersContainer, ManageUsersContent, ManageUsersHeader} from './manageUsers.styled';
 
 export default function ManageUsers() {
-   return <div>ManageUsers</div>;
+   const array = [1, 2, 3, 4, 5];
+   const role = 'user';
+   const admin = role === 'admin';
+
+   return (
+      <ManageUsersContainer>
+         <ManageUsersContent>
+            <ManageUsersHeader>
+               <tr>
+                  <th>sl no</th>
+                  <th>image</th>
+                  <th>full name</th>
+                  <th>email address</th>
+                  <th>phone</th>
+                  <th>role</th>
+                  <th>actions</th>
+               </tr>
+            </ManageUsersHeader>
+            <ManageUsersBody>
+               {array.map((v, i) => (
+                  <tr key={i}>
+                     <td>01</td>
+                     <td>
+                        <img src='https://i.pravatar.cc/150?img=41' alt='product' />
+                     </td>
+                     <td>foysal ahmmed</td>
+                     <td className='email'>pmfoysal@gmail.com</td>
+                     <td>+88 01645 114090</td>
+                     <td>{role}</td>
+                     <td>{admin ? <Button name='remove admin' small danger /> : <Button name='make admin' small />}</td>
+                  </tr>
+               ))}
+            </ManageUsersBody>
+         </ManageUsersContent>
+      </ManageUsersContainer>
+   );
 }
