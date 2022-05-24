@@ -1,6 +1,6 @@
 import React from 'react';
+import ProductCard from '@helpers/productCard';
 import MainContainer from '@shared/mainContainer';
-import BlogCard from '@helpers/blogCard';
 
 export default function Home() {
    return (
@@ -10,7 +10,7 @@ export default function Home() {
          </div>
          <MainContainer>
             <div style={{padding: '5rem'}}>
-               <BlogCard />
+               <ProductCard />
             </div>
          </MainContainer>
       </React.Fragment>
