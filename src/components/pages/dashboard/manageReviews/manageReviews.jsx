@@ -16,6 +16,7 @@ export default function ManageReviews() {
                <tr>
                   <th>sl no</th>
                   <th>date</th>
+                  <th>ratings</th>
                   <th>review summary</th>
                   <th>actions</th>
                </tr>
@@ -25,7 +26,8 @@ export default function ManageReviews() {
                   <tr key={i}>
                      <td>01</td>
                      <td>12 May, 2022</td>
-                     <td>Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quae, Ex Explicabo. Praesentium...</td>
+                     <td>4.5</td>
+                     <td>Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quae, Ex Explic...</td>
                      <td>
                         {!admin && <Button name='edit' small neutral />}
                         <Button name={admin ? 'delete now' : 'delete'} small danger />

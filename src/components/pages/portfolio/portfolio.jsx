@@ -76,7 +76,6 @@ export default function Portfolio() {
                      <strong>higher secondary certificate (HSC)</strong>
                      <br />
                      <strong>institute: </strong> Milestone College, Dhaka. <br />
-                     <strong>GPA: </strong> 4.83 out of 5.00
                   </PortfolioCardPara>
                   <PortfolioCardPara>
                      <span className='title'>my projects</span>
