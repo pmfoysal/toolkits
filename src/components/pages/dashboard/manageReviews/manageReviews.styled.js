@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
-export const ManageOrdersContainer = styled.article``;
+export const ManageReviewsContainer = styled.article``;
 
-export const ManageOrdersContent = styled.table`
+export const ManageReviewsContent = styled.table`
    width: 100%;
    border-radius: 2rem;
    overflow: hidden;
 `;
 
-export const ManageOrdersHeader = styled.thead`
+export const ManageReviewsHeader = styled.thead`
    padding: 1.5rem;
    background-color: ${({theme}) => theme.back.accent};
 
    tr {
       width: 100%;
       display: grid;
-      grid-template-columns: 7rem 1fr 1fr 9rem 10rem 10rem 12rem 15rem;
+      grid-template-columns: 7rem 15rem 1fr 12rem;
       gap: 1rem;
       justify-items: flex-start;
    }
@@ -28,7 +28,7 @@ export const ManageOrdersHeader = styled.thead`
    }
 `;
 
-export const ManageOrdersBody = styled.tbody`
+export const ManageReviewsBody = styled.tbody`
    display: flex;
    flex-direction: column;
    background-color: ${({theme}) => theme.back.card0};
@@ -37,7 +37,7 @@ export const ManageOrdersBody = styled.tbody`
       padding: 0.8rem 1.5rem;
       width: 100%;
       display: grid;
-      grid-template-columns: 7rem 1fr 1fr 9rem 10rem 10rem 12rem 15rem;
+      grid-template-columns: 7rem 15rem 1fr 12rem;
       gap: 1rem;
       justify-items: flex-start;
 
