@@ -173,14 +173,8 @@ async function runDatabase() {
          res.send(result);
       });
 
-      app.get('/reviews', async (req, res) => {
+      app.get('/reviews', verifyUser, async (req, res) => {
          const data = await reviews.find({}).toArray();
-         res.send(data.reverse());
-      });
-
-      app.get('/reviews/:email', verifyUser, verifyGetter, async (req, res) => {
-         const filter = {email: req?.params?.email};
-         const data = await reviews.find(filter).toArray();
          res.send(data.reverse());
       });
 
@@ -190,7 +184,7 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/review/:email/:id', verifyUser, verifyGetter, async (req, res) => {
+      app.put('/review/:id', verifyUser, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
          const data = {$set: req?.body};
@@ -211,21 +205,9 @@ async function runDatabase() {
          res.send(result);
       });
 
-      app.get('/orders', verifyUser, verifyAdmin, async (req, res) => {
+      app.get('/orders', verifyUser, async (req, res) => {
          const data = await orders.find({}).toArray();
          res.send(data.reverse());
-      });
-
-      app.get('/orders/:email', verifyUser, verifyGetter, async (req, res) => {
-         const filter = {email: req?.params?.email};
-         const data = await orders.find(filter).toArray();
-         res.send(data.reverse());
-      });
-
-      app.get('/orders/:email/:id', verifyUser, verifyGetter, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
-         const result = await orders.findOne(filter);
-         res.send(result);
       });
 
       app.put('/order/:id', verifyUser, async (req, res) => {
