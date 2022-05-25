@@ -165,6 +165,12 @@ async function runDatabase() {
          const result = await products.updateOne(filter, data, options);
          res.send(result);
       });
+
+      app.delete('/product/:id', verifyUser, verifyAdmin, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const result = await products.deleteOne(filter);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
