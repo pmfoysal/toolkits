@@ -216,6 +216,12 @@ async function runDatabase() {
          const result = await orders.insertOne(req?.body);
          res.send(result);
       });
+
+      app.get('/orders/:email', verifyUser, verifyGetter, async (req, res) => {
+         const filter = {email: req?.params?.email};
+         const data = await orders.find(filter).toArray();
+         res.send(data.reverse());
+      });
    } finally {
       // await client.close();
    }
