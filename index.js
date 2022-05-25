@@ -87,11 +87,14 @@ async function runDatabase() {
          res.send(result);
       });
 
+      app.get('/users', async (req, res) => {
+         const data = await users.find({}).toArray();
+         res.send(data.reverse());
+      });
+
       app.get('/products', async (req, res) => {
-         const query = {};
-         const cursor = products.find(query);
-         const data = await cursor.toArray();
-         res.send(data);
+         const data = await products.find({}).toArray();
+         res.send(data.reverse());
       });
 
       app.get('/products/:user', verifyUser, async (req, res) => {
