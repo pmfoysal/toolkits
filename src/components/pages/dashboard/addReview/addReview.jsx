@@ -23,6 +23,7 @@ export default function AddReview() {
    const data = {
       name: user?.displayName,
       email: user?.email,
+      image: user?.photoURL,
       date: Date.now(),
       ratings,
       review,
