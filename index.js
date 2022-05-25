@@ -36,6 +36,20 @@ async function runDatabase() {
       await dbClient.connect();
       const products = dbClient.db('pmphas12').collection('products');
       const blogs = dbClient.db('pmphas12').collection('blogs');
+      const users = dbClient.db('pmphas12').collection('users');
+      const reviews = dbClient.db('pmphas12').collection('reviews');
+      const orders = dbClient.db('pmphas12').collection('orders');
+
+      async function verifyAdmin(req, res, next) {
+         const email = req?.decoded?.email;
+         const user = await users.findOne({email});
+         if (user?.role === 'admin') next();
+         else
+            res.status(403).send({
+               status: 403,
+               message: 'Forbidden! You are not an Admin!',
+            });
+      }
 
       app.post('/token', async (req, res) => {
          const user = req.body;
