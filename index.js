@@ -97,6 +97,11 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/reviews', async (req, res) => {
+         const data = await reviews.find({}).toArray();
+         res.send(data.reverse());
+      });
+
       app.get('/products/:user', verifyUser, async (req, res) => {
          const email = req.params.user;
          const authEmail = req.decoded.email;
