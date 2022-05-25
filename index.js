@@ -183,6 +183,12 @@ async function runDatabase() {
          const data = await reviews.find({}).toArray();
          res.send(data.reverse());
       });
+
+      app.get('/reviews/:email', verifyUser, verifyGetter, async (req, res) => {
+         const filter = {email: req?.params?.email};
+         const data = await reviews.find(filter).toArray();
+         res.send(data.reverse());
+      });
    } finally {
       // await client.close();
    }
