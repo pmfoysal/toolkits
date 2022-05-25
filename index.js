@@ -217,6 +217,11 @@ async function runDatabase() {
          res.send(result);
       });
 
+      app.get('/orders', verifyUser, verifyAdmin, async (req, res) => {
+         const data = await orders.find({}).toArray();
+         res.send(data.reverse());
+      });
+
       app.get('/orders/:email', verifyUser, verifyGetter, async (req, res) => {
          const filter = {email: req?.params?.email};
          const data = await orders.find(filter).toArray();
