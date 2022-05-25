@@ -8,8 +8,12 @@ import pmaxios from '@middlewares/pmaxios';
 import {toast} from 'react-toastify';
 import isLink from '@validations/isLink';
 import {EditProductContainer, EditProductForm, EditProductInputGroup, EditProductTitle} from './editProduct.styled';
+import {useParams} from 'react-router-dom';
+import useProduct from '@hooks/useProduct';
 
 export default function EditProduct() {
+   const {id: urlId} = useParams();
+   const {data: product = {}, refetch} = useProduct(urlId);
    const [disable, setDisable] = useState(true);
    const [title, setTitle] = useState('');
    const [image, setImage] = useState('');
@@ -18,7 +22,14 @@ export default function EditProduct() {
    const [available, setAvailable] = useState('');
    const [details, setDetails] = useState('');
 
-   const {user} = useContext(StoreContext);
+   function formUpdater() {
+      setTitle(product?.title || '');
+      setImage(product?.image || '');
+      setPrice(product?.price || '');
+      setRequired(product?.required || '');
+      setAvailable(product?.available || '');
+      setDetails(product?.details || '');
+   }
 
    function validateData() {
       const test1 = title && price && required;
@@ -41,7 +52,6 @@ export default function EditProduct() {
    }
 
    const data = {
-      email: user?.email,
       title,
       image,
       price,
@@ -60,13 +70,14 @@ export default function EditProduct() {
       const allOk = validateData();
       if (allOk) {
          setDisable(true);
-         const tId = toast.loading('Please Wait! Your Product Adding to Database...');
+         const tId = toast.loading('Please Wait! This Product Updating to Database...');
          pmaxios
-            .post('/products', data)
+            .put(`/product/${urlId}`, data)
             .then(res => {
                if (res?.data?.acknowledged) {
+                  refetch();
                   toast.update(tId, {
-                     render: 'Your Product Added Successfully to Database!',
+                     render: 'The Following Product Updated Successfully to Database!',
                      isLoading: false,
                      autoClose: 3000,
                      type: 'success',
@@ -89,6 +100,10 @@ export default function EditProduct() {
       if (allOk) setDisable(false);
       else setDisable(true);
    }, [title, price, required, available, details, image]);
+
+   useEffect(() => {
+      formUpdater();
+   }, [product]);
 
    return (
       <EditProductContainer>
