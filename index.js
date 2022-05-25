@@ -87,7 +87,7 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
-      app.get('/user/:email', verifyUser, verifyGetter, async (req, res) => {
+      app.get('/user/:email', async (req, res) => {
          const email = req?.params?.email;
          const data = await users.findOne({email});
          res.send(data);
