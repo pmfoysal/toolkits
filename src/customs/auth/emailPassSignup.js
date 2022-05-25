@@ -1,6 +1,7 @@
+import getToken from './getToken';
 import {toast} from 'react-toastify';
-import pmaxios from '@middlewares/pmaxios';
 import auth from '@configs/firebase.config';
+import addUserToDB from '@servers/addUserToDB';
 import userEmailVerify from './userEmailVerify';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 
@@ -14,12 +15,8 @@ export default function emailPassSignup(data) {
                render: 'Account Created! Updating Your Profile Information...!',
             });
             userProfileUpdate(tId, image, name);
-            pmaxios
-               .put(`/user/${email}`, {email, image, name, phone})
-               .then(res => {})
-               .catch(error => {
-                  toast.error(error.message);
-               });
+            getToken({name, email, phone, image});
+            addUserToDB({name, email, phone, image});
          }
       })
       .catch(error => {

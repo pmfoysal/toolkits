@@ -1,7 +1,8 @@
+import getToken from './getToken';
 import {toast} from 'react-toastify';
-import pmaxios from '@middlewares/pmaxios';
 import auth from '@configs/firebase.config';
 import {signInWithPopup} from 'firebase/auth';
+import addUserToDB from '@servers/addUserToDB';
 
 export default function popupSignin(provider) {
    const tId = toast.loading('Please Wait! Connecting to The Server...');
@@ -19,12 +20,8 @@ export default function popupSignin(provider) {
                isLoading: false,
                autoClose: 3000,
             });
-            pmaxios
-               .put(`/user/${email}`, {email, phone, image, name})
-               .then(res => {})
-               .catch(error => {
-                  toast.error(error.message);
-               });
+            getToken({name, email, phone, image});
+            addUserToDB({name, email, phone, image});
          }
       })
       .catch(error => {

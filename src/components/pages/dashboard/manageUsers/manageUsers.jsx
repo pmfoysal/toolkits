@@ -1,10 +1,11 @@
-import React from 'react';
 import Button from '@shared/button';
+import React, {useContext} from 'react';
+import {StoreContext} from '@contexts/storeProvider';
 import {ManageUsersBody, ManageUsersContainer, ManageUsersContent, ManageUsersHeader} from './manageUsers.styled';
 
 export default function ManageUsers() {
    const array = [1, 2, 3, 4, 5];
-   const role = 'user';
+   const {role} = useContext(StoreContext);
    const admin = role === 'admin';
 
    return (
@@ -31,7 +32,7 @@ export default function ManageUsers() {
                      <td>foysal ahmmed</td>
                      <td className='email'>pmfoysal@gmail.com</td>
                      <td>+88 01645 114090</td>
-                     <td>{role}</td>
+                     <td>{role || 'user'}</td>
                      <td>{admin ? <Button name='remove admin' small danger /> : <Button name='make admin' small />}</td>
                   </tr>
                ))}
