@@ -151,6 +151,12 @@ async function runDatabase() {
          const data = await products.find({}).toArray();
          res.send(data.reverse());
       });
+
+      app.get('/product/:id', async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const data = await products.findOne(filter);
+         res.send(data);
+      });
    } finally {
       // await client.close();
    }
