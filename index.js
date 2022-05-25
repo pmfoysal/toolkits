@@ -146,6 +146,11 @@ async function runDatabase() {
          const result = await products.insertOne(req?.body);
          res.send(result);
       });
+
+      app.get('/products', async (req, res) => {
+         const data = await products.find({}).toArray();
+         res.send(data.reverse());
+      });
    } finally {
       // await client.close();
    }
