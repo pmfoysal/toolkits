@@ -228,6 +228,12 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/orders/:email/:id', verifyUser, verifyGetter, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const result = await reviews.findOne(filter);
+         res.send(result);
+      });
+
       app.put('/order/:id', verifyUser, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
