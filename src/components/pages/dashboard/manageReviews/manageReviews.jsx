@@ -9,7 +9,7 @@ export default function ManageReviews() {
    const {role} = useContext(StoreContext);
    const admin = role === 'admin';
 
-   const {data: reviews, isLoading} = useReviews();
+   const {data: reviews, isLoading, refetch} = useReviews();
 
    return (
       <ManageReviewsContainer>
@@ -30,7 +30,7 @@ export default function ManageReviews() {
                </ManageReviewsHeader>
                <ManageReviewsBody>
                   {reviews?.map((data, index) => (
-                     <ReviewsCard data={data} index={index} admin={admin} />
+                     <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />
                   ))}
                </ManageReviewsBody>
             </ManageReviewsContent>
