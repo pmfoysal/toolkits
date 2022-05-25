@@ -28,6 +28,17 @@ function verifyAdmin(req, res, next) {
    next();
 }
 
+function verifyGetter(req, res, next) {
+   const email = req?.params?.email;
+   if (email !== req?.user?.email) {
+      return res.status(403).send({
+         status: 403,
+         message: 'Opps, Forbidden! You can not access Others Information!',
+      });
+   }
+   next();
+}
+
 async function runDatabase() {
    try {
       await dbClient.connect();
@@ -82,16 +93,18 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
-      app.get('/user/:email', verifyUser, async (req, res) => {
+      app.get('/user/:email', verifyUser, verifyGetter, async (req, res) => {
          const email = req?.params?.email;
-         if (email !== req?.user?.email) {
-            return res.status(403).send({
-               status: 403,
-               message: 'Opps, Forbidden! You can not access Others Information!',
-            });
-         }
          const data = await users.findOne({email});
          res.send(data);
+      });
+
+      app.put('/user/:email', verifyUser, verifyGetter, async (req, res) => {
+         const email = req?.params?.email;
+         const options = {upsert: true};
+         const data = {$set: req?.body};
+         const result = await users.updateOne({email}, data, options);
+         res.send(result);
       });
    } finally {
       // await client.close();
