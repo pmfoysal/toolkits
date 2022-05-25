@@ -118,6 +118,15 @@ async function runDatabase() {
          const data = await blogs.find({}).toArray();
          res.send(data.reverse());
       });
+
+      app.put('/blog/:id', verifyUser, verifyAdmin, async (req, res) => {
+         const id = req?.params?.id;
+         const options = {upsert: true};
+         const data = {$set: req?.body};
+         const filter = {_id: ObjectId(id)};
+         const result = await blogs.updateOne(filter, data, options);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
