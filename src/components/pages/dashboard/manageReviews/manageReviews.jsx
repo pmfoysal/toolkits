@@ -6,7 +6,8 @@ import ReviewsCard from './partials/reviewsCard';
 import {ManageReviewsBody, ManageReviewsContainer, ManageReviewsContent, ManageReviewsHeader} from './manageReviews.styled';
 
 export default function ManageReviews() {
-   const {role} = useContext(StoreContext);
+   const {user, role} = useContext(StoreContext);
+   const email = user?.email;
    const admin = role === 'admin';
 
    const {data: reviews, isLoading, refetch} = useReviews();
@@ -29,9 +30,11 @@ export default function ManageReviews() {
                   </tr>
                </ManageReviewsHeader>
                <ManageReviewsBody>
-                  {reviews?.map((data, index) => (
-                     <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />
-                  ))}
+                  {admin
+                     ? reviews?.map((data, index) => <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />)
+                     : reviews
+                          ?.filter(v => v?.email === email)
+                          ?.map((data, index) => <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />)}
                </ManageReviewsBody>
             </ManageReviewsContent>
          )}
