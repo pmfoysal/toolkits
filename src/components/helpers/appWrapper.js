@@ -2,6 +2,9 @@ import React, {useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import StoreProvider from '@contexts/storeProvider';
 import ThemeProvider from '@contexts/themeProvider';
+import {QueryClient, QueryClientProvider} from 'react-query';
+
+const queryClient = new QueryClient();
 
 export default function AppWrapper({children}) {
    useEffect(() => {
@@ -19,7 +22,9 @@ export default function AppWrapper({children}) {
       <React.Fragment>
          <ThemeProvider>
             <StoreProvider>
-               <BrowserRouter>{children}</BrowserRouter>
+               <BrowserRouter>
+                  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+               </BrowserRouter>
             </StoreProvider>
          </ThemeProvider>
       </React.Fragment>

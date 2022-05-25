@@ -21,14 +21,14 @@ import isNumber from '@validations/isNumber';
 
 export default function UserProfile() {
    const {user, dbUser, role} = useContext(StoreContext);
-   const [firstName, setFirstName] = useState(user?.displayName?.split(' ')[0]);
-   const [lastName, setLastName] = useState(user?.displayName?.split(' ')[1]);
-   const [location, setLocation] = useState(dbUser?.location);
-   const [email, setEmail] = useState(user?.email);
-   const [image, setImage] = useState(user?.photoURL);
-   const [phone, setPhone] = useState(dbUser?.phone);
-   const [linkedin, setLinkedin] = useState(dbUser?.linkedin);
-   const [education, setEducation] = useState(dbUser?.education);
+   const [firstName, setFirstName] = useState('');
+   const [lastName, setLastName] = useState('');
+   const [location, setLocation] = useState('');
+   const [email, setEmail] = useState('');
+   const [image, setImage] = useState('');
+   const [phone, setPhone] = useState('');
+   const [linkedin, setLinkedin] = useState('');
+   const [education, setEducation] = useState('');
    const [edit, setEdit] = useState(false);
    const [disable, setDisable] = useState(true);
 

@@ -7,7 +7,7 @@ export default function getToken(data) {
       .then(res => {
          const token = res?.data?.token;
          if (token) {
-            window.localStorage.setItem('userToken', JSON.stringify(token));
+            window.localStorage.setItem('userToken', token);
          }
       })
       .catch(error => toast.error(error.message));
