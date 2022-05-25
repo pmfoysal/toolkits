@@ -2,17 +2,16 @@ import React from 'react';
 import Backdrop from './backdrop';
 import {Icon} from '@iconify/react';
 import Button from '@shared/button';
-import deleteProduct from '@servers/deleteProduct';
 import {ConfirmButtons, ConfirmContainer, ConfirmPara, ConfirmTitle} from './confirm.styled';
 
-export default function Confirm({setActive, id}) {
+export default function Confirm({setActive, handler}) {
    function cancelHandler() {
       setActive(false);
    }
 
    function mainHandler() {
       setActive(false);
-      deleteProduct(id);
+      if (handler) handler();
    }
 
    return (
