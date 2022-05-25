@@ -157,6 +157,14 @@ async function runDatabase() {
          const data = await products.findOne(filter);
          res.send(data);
       });
+
+      app.put('/product/:id', verifyUser, verifyAdmin, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const options = {upsert: true};
+         const data = {$set: req?.body};
+         const result = await products.updateOne(filter, data, options);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
