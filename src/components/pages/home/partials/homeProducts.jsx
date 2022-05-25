@@ -14,7 +14,7 @@ export default function HomeProducts() {
                <PageLoader />
             ) : (
                <HomeProductsContent>
-                  {products?.map(data => (
+                  {products?.slice(0, 6)?.map(data => (
                      <ProductCard data={data} key={data._id} />
                   ))}
                </HomeProductsContent>

@@ -15,7 +15,7 @@ export default function HomeReviews() {
                <PageLoader />
             ) : (
                <HomeReviewsCards>
-                  {reviews?.map(data => (
+                  {reviews?.slice(0, 3)?.map(data => (
                      <ReviewCard data={data} key={data._id} />
                   ))}
                </HomeReviewsCards>
