@@ -113,6 +113,11 @@ async function runDatabase() {
          const result = await blogs.insertOne(req?.body);
          res.send(result);
       });
+
+      app.get('/blogs', async (req, res) => {
+         const data = await blogs.find({}).toArray();
+         res.send(data.reverse());
+      });
    } finally {
       // await client.close();
    }
