@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AuthContainer = styled.section`
    padding: 8rem 0;
-   min-height: calc(100vh - 14.8rem);
+   min-height: calc(100vh - 14.2rem);
    background-color: ${({theme}) => theme.back.card0};
    overflow: hidden;
 
@@ -23,7 +23,7 @@ export const AuthContainer = styled.section`
       grid-template-columns: repeat(2, 1fr);
       z-index: 3;
       gap: 20rem;
-      min-height: calc(100vh - 14.8rem - 16rem);
+      min-height: calc(100vh - 14.2rem - 16rem);
    }
 `;
 

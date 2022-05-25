@@ -36,8 +36,6 @@ export default function StoreProvider({children}) {
       }
    }, [user]);
 
-   console.log(role);
-
    return (
       <StoreContext.Provider value={{store, setStore, user, setUser, dbUser, setDbUser, role, setRole}}>
          {children}

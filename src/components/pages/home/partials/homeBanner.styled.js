@@ -4,13 +4,13 @@ import image from '@images/background.webp';
 export const HomeBannerContainer = styled.section`
    padding: 8rem 0;
    background-image: url(${image});
-   min-height: calc(100vh - 14.8rem);
+   min-height: calc(100vh - 14.2rem);
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
 
    & > * {
-      min-height: calc(100vh - 14.8rem - 16rem);
+      min-height: calc(100vh - 14.2rem - 16rem);
       display: flex;
       align-items: center;
       justify-content: center;

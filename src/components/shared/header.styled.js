@@ -14,12 +14,16 @@ export const HeaderPart1 = styled.div`
    padding: 2rem 0;
 
    & > * {
-      display: grid;
-      grid-template-columns: 20rem 1fr 20rem;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      align-content: center;
-      justify-items: center;
+      justify-content: space-between;
+
+      & > *:nth-child(2) {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
    }
 `;
 
