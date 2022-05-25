@@ -171,6 +171,13 @@ async function runDatabase() {
          const result = await products.deleteOne(filter);
          res.send(result);
       });
+
+      // [===>>>) Reviews API Starts Here (<<<===] //
+
+      app.post('/reviews', verifyUser, async (req, res) => {
+         const result = await reviews.insertOne(req?.body);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
