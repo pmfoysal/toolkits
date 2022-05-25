@@ -18,8 +18,8 @@ export default function MegaFooter() {
             <MegaFooterIconArea>
                <Logo />
                <p>
-                  Suitable for Grocery Market, Store, Organic Food, Online Shop, Agriculture and Natural Foods related management
-                  Website.
+                  ToolKits is the best parts shop for your car accessories. What kind of parts do you need? you can get here all
+                  latest card parts!
                </p>
             </MegaFooterIconArea>
             {generateMenu(menuData)}
