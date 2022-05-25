@@ -119,6 +119,12 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/blog/:id', async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const data = await blogs.findOne(filter);
+         res.send(data);
+      });
+
       app.put('/blog/:id', verifyUser, verifyAdmin, async (req, res) => {
          const id = req?.params?.id;
          const options = {upsert: true};
