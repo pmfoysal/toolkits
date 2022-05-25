@@ -196,11 +196,17 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/review/:id', verifyUser, verifyGetter, async (req, res) => {
+      app.put('/review/:email/:id', verifyUser, verifyGetter, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
          const data = {$set: req?.body};
          const result = await reviews.updateOne(filter, data, options);
+         res.send(result);
+      });
+
+      app.delete('/review/:id', verifyUser, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const result = await reviews.deleteOne(filter);
          res.send(result);
       });
    } finally {
