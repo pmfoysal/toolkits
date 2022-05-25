@@ -57,9 +57,15 @@ async function runDatabase() {
          res.send({token});
       });
 
-      app.post('/product', async (req, res) => {
-         const newData = req.body;
-         const result = await products.insertOne(newData);
+      app.post('/users', async (req, res) => {
+         const data = req.body;
+         const result = await products.insertOne(data);
+         res.send(result);
+      });
+
+      app.post('/products', async (req, res) => {
+         const data = req.body;
+         const result = await products.insertOne(data);
          res.send(result);
       });
 
