@@ -82,12 +82,6 @@ async function runDatabase() {
 
       // [===>>>) Users API Starts Here (<<<===] //
 
-      app.post('/users', async (req, res) => {
-         const data = req?.body;
-         const result = await users.insertOne(data);
-         res.send(result);
-      });
-
       app.get('/users', verifyUser, verifyAdmin, async (req, res) => {
          const data = await users.find({}).toArray();
          res.send(data.reverse());
@@ -99,7 +93,7 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/user/:email', verifyUser, verifyGetter, async (req, res) => {
+      app.put('/user/:email', verifyUser, async (req, res) => {
          const email = req?.params?.email;
          const options = {upsert: true};
          const data = {$set: req?.body};
@@ -230,7 +224,7 @@ async function runDatabase() {
 
       app.get('/orders/:email/:id', verifyUser, verifyGetter, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
-         const result = await reviews.findOne(filter);
+         const result = await orders.findOne(filter);
          res.send(result);
       });
 
@@ -239,6 +233,12 @@ async function runDatabase() {
          const options = {upsert: true};
          const data = {$set: req?.body};
          const result = await orders.updateOne(filter, data, options);
+         res.send(result);
+      });
+
+      app.delete('/order/:id', verifyUser, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const result = await orders.deleteOne(filter);
          res.send(result);
       });
    } finally {
