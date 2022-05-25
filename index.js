@@ -106,6 +106,13 @@ async function runDatabase() {
          const result = await users.updateOne({email}, data, options);
          res.send(result);
       });
+
+      // [===>>>) Blogs API Starts Here (<<<===] //
+
+      app.post('/blogs', verifyUser, verifyAdmin, async (req, res) => {
+         const result = await blogs.insertOne(req?.body);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
