@@ -75,6 +75,12 @@ async function runDatabase() {
          res.send(result);
       });
 
+      app.post('/orders', async (req, res) => {
+         const data = req.body;
+         const result = await orders.insertOne(data);
+         res.send(result);
+      });
+
       app.get('/products', async (req, res) => {
          const query = {};
          const cursor = products.find(query);
