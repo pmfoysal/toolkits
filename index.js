@@ -195,6 +195,14 @@ async function runDatabase() {
          const data = await reviews.findOne(filter);
          res.send(data);
       });
+
+      app.put('/review/:id', verifyUser, verifyGetter, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const options = {upsert: true};
+         const data = {$set: req?.body};
+         const result = await reviews.updateOne(filter, data, options);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
