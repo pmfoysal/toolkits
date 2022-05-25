@@ -16,22 +16,25 @@ export default function StoreProvider({children}) {
       onAuthStateChanged(auth, u => {
          if (u) {
             setUser(u);
-            pmaxios
-               .get(`/user/${u?.email}`)
-               .then(res => {
-                  if (res?.data?.email) {
-                     setDbUser(res?.data);
-                     if (res?.data?.role) {
-                        setRole(res?.data?.role);
-                     }
-                  }
-               })
-               .catch(error => toast.error(error.message));
          } else {
             setUser({});
          }
       });
    }, []);
+
+   useEffect(() => {
+      if (user?.email) {
+         pmaxios
+            .get(`/user/${user?.email}`)
+            .then(res => {
+               if (res?.data?.email) {
+                  setDbUser(res?.data);
+                  setRole(res?.data?.role || 'user');
+               }
+            })
+            .catch(error => toast.error(error.message));
+      }
+   }, [user]);
 
    console.log(role);
 
