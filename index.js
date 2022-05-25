@@ -51,6 +51,8 @@ async function runDatabase() {
             });
       }
 
+      // [===>>>) All Post API Starts Here (<<<===] //
+
       app.post('/token', async (req, res) => {
          const user = req.body;
          const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '1h'});
@@ -87,6 +89,8 @@ async function runDatabase() {
          res.send(result);
       });
 
+      // [===>>>) All Get API Starts Here (<<<===] //
+
       app.get('/users', async (req, res) => {
          const data = await users.find({}).toArray();
          res.send(data.reverse());
@@ -112,9 +116,15 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/user/:email', async (req, res) => {
+         const email = req?.params?.email;
+         const data = await users.findOne({email});
+         res.send(data);
+      });
+
       app.get('/products/:user', verifyUser, async (req, res) => {
-         const email = req.params.user;
-         const authEmail = req.decoded.email;
+         const email = req?.params?.user;
+         const authEmail = req?.decoded?.email;
          if (authEmail === email) {
             const query = {email};
             const cursor = products.find(query);
@@ -126,15 +136,15 @@ async function runDatabase() {
       });
 
       app.get('/product/:id', async (req, res) => {
-         const id = req.params.id;
+         const id = req?.params?.id;
          const query = {_id: ObjectId(id)};
          const data = await products.findOne(query);
          res.send(data);
       });
 
       app.put('/product/:id', async (req, res) => {
-         const id = req.params.id;
-         const newData = req.body;
+         const id = req?.params?.id;
+         const newData = req?.body;
          const filter = {_id: ObjectId(id)};
          const options = {upsert: true};
          const update = {$set: newData};
@@ -143,22 +153,13 @@ async function runDatabase() {
       });
 
       app.delete('/product/:id', async (req, res) => {
-         const id = req.params.id;
-         const query = {_id: ObjectId(id)};
+         const query = {_id: ObjectId(req?.params?.id)};
          const result = await products.deleteOne(query);
          res.send(result);
       });
 
-      app.get('/blogs', async (req, res) => {
-         const query = {};
-         const cursor = blogs.find(query);
-         const data = await cursor.toArray();
-         res.send(data);
-      });
-
       app.get('/blog/:id', async (req, res) => {
-         const id = req.params.id;
-         const query = {_id: ObjectId(id)};
+         const query = {_id: ObjectId(req?.params?.id)};
          const data = await blogs.findOne(query);
          res.send(data);
       });
