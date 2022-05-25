@@ -10,7 +10,6 @@ export default function popupSignin(provider) {
       .then(result => {
          const email = result?.user?.email;
          const uid = result?.user?.uid;
-         const phone = result?.user?.phoneNumber;
          const image = result?.user?.photoURL;
          const name = result?.user?.displayName;
          if (uid) {
@@ -20,8 +19,8 @@ export default function popupSignin(provider) {
                isLoading: false,
                autoClose: 3000,
             });
-            getToken({name, email, phone, image});
-            addUserToDB({name, email, phone, image});
+            getToken({name, email, image});
+            addUserToDB({name, email, image});
          }
       })
       .catch(error => {

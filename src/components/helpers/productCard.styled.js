@@ -15,6 +15,7 @@ export const ProductCardContainer = styled.summary`
 
 export const ProductCardImage = styled.figure`
    width: 100%;
+   height: auto;
    aspect-ratio: 2/1.25;
    overflow: hidden;
    display: flex;
@@ -22,9 +23,7 @@ export const ProductCardImage = styled.figure`
    justify-content: center;
 
    img {
-      height: 100%;
-      width: auto;
-      object-fit: unset;
+      object-fit: contain;
    }
 `;
 
