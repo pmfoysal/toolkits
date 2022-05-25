@@ -178,6 +178,11 @@ async function runDatabase() {
          const result = await reviews.insertOne(req?.body);
          res.send(result);
       });
+
+      app.get('/reviews', async (req, res) => {
+         const data = await reviews.find({}).toArray();
+         res.send(data.reverse());
+      });
    } finally {
       // await client.close();
    }
