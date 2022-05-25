@@ -93,7 +93,7 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/user/:email', verifyUser, async (req, res) => {
+      app.put('/user/:email', async (req, res) => {
          const email = req?.params?.email;
          const options = {upsert: true};
          const data = {$set: req?.body};
