@@ -189,6 +189,12 @@ async function runDatabase() {
          const data = await reviews.find(filter).toArray();
          res.send(data.reverse());
       });
+
+      app.get('/review/:id', async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const data = await reviews.findOne(filter);
+         res.send(data);
+      });
    } finally {
       // await client.close();
    }
