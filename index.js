@@ -139,6 +139,13 @@ async function runDatabase() {
          const result = await blogs.deleteOne(filter);
          res.send(result);
       });
+
+      // [===>>>) Products API Starts Here (<<<===] //
+
+      app.post('/products', verifyUser, verifyAdmin, async (req, res) => {
+         const result = await products.insertOne(req?.body);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
