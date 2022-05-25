@@ -227,6 +227,14 @@ async function runDatabase() {
          const data = await orders.find(filter).toArray();
          res.send(data.reverse());
       });
+
+      app.put('/order/:id', verifyUser, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const options = {upsert: true};
+         const data = {$set: req?.body};
+         const result = await orders.updateOne(filter, data, options);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
