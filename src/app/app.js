@@ -10,6 +10,7 @@ import {Blogs, Contact, Dashboard, Forget, Home, NotFound} from '@pages';
 import {BlogDetails, Portfolio, Products, Purchase, Signin, Signup} from '@pages';
 import {ManageOrders, ManageProducts, ManageReviews, UserProfile} from '@dashboard';
 import {AddProduct, AddReview, EditProduct, EditReview, ManageUsers} from '@dashboard';
+import MegaFooter from '@helpers/megaFooter';
 
 export default function App() {
    const {user, role} = useContext(StoreContext);
@@ -51,6 +52,7 @@ export default function App() {
                <Route path='*' element={<NotFound />} />
             </Routes>
          </Suspense>
+         <MegaFooter />
          <Footer />
          <Toaster />
       </React.Fragment>

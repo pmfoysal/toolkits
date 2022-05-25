@@ -2,6 +2,8 @@ import React from 'react';
 import Logo from '@shared/logo';
 import {MegaFooterContainer, MegaFooterIconArea} from './megaFooter.styled';
 import MainContainer from '@shared/mainContainer';
+import menuData from '@databases/menuData';
+import MegaMenu from './megaMenu';
 
 export default function MegaFooter() {
    function generateMenu(megaData) {
@@ -16,7 +18,7 @@ export default function MegaFooter() {
       <MegaFooterContainer>
          <MainContainer>
             <MegaFooterIconArea>
-               <Logo />
+               <Logo main />
                <p>
                   ToolKits is the best parts shop for your car accessories. What kind of parts do you need? you can get here all
                   latest card parts!

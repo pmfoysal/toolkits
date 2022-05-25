@@ -1,56 +1,68 @@
 const menuData = {
-   about: [
+   information: [
       {
-         name: 'about us',
+         name: 'our company',
          link: '/about',
       },
       {
-         name: 'features',
-         link: '/features',
+         name: 'contact us',
+         link: '/contact',
       },
-      {
-         name: 'news & blogs',
-         link: '/blogs',
-      },
-      {
-         name: 'awards',
-         link: '/awards',
-      },
-   ],
-   movement: [
-      {
-         name: 'why grocery',
-         link: '/whatis',
-      },
-      {
-         name: 'support us',
-         link: '/support',
-      },
-      {
-         name: 'feedback',
-         link: '/feedback',
-      },
-      {
-         name: 'press release',
-         link: '/press',
-      },
-   ],
-   services: [
       {
          name: 'our services',
          link: '/services',
       },
       {
-         name: 'popular inventories',
-         link: '/inventories/popular',
+         name: 'why we?',
+         link: '/why',
       },
       {
-         name: 'best supplier',
-         link: '/suppliers',
+         name: 'careers',
+         link: '/careers',
+      },
+   ],
+   quicklinks: [
+      {
+         name: 'about',
+         link: '/about',
       },
       {
-         name: 'affiliate program',
-         link: '/affiliate',
+         name: 'blogs',
+         link: '/blogs',
+      },
+      {
+         name: 'products',
+         link: '/products',
+      },
+      {
+         name: 'portfolio',
+         link: '/portfolio',
+      },
+      {
+         name: 'contact',
+         link: '/contact',
+      },
+   ],
+   support: [
+      {
+         name: 'blogs',
+         link: '/blogs',
+      },
+      {
+         name: 'contact',
+         link: '/contact',
+      },
+      {
+         name: 'return policy',
+         link: '/policy',
+      },
+      {
+         name: 'online support',
+         link: '/support',
+      },
+      {
+         name: 'money back',
+         link: '/moneyback',
       },
    ],
    conditions: [
