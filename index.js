@@ -81,6 +81,12 @@ async function runDatabase() {
          res.send(result);
       });
 
+      app.post('/blogs', async (req, res) => {
+         const data = req.body;
+         const result = await blogs.insertOne(data);
+         res.send(result);
+      });
+
       app.get('/products', async (req, res) => {
          const query = {};
          const cursor = products.find(query);
