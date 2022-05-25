@@ -73,6 +73,12 @@ async function runDatabase() {
          const result = await users.insertOne(data);
          res.send(result);
       });
+
+      app.get('/user/:email', async (req, res) => {
+         const email = req?.params?.email;
+         const data = users.findOne({email});
+         res.send(data);
+      });
    } finally {
       // await client.close();
    }
