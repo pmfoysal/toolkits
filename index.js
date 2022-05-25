@@ -16,21 +16,16 @@ const corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 
-// [===>>>) Verify User Middleware Starts Here (<<<===] //
+// [===>>>) Verify Admin Middleware Starts Here (<<<===] //
 
-function verifyUser(req, res, next) {
-   const auth = req.headers.authorization;
-   const res1 = {status: 401, message: "You don't have Authorization to access this API!"};
-   const res2 = {status: 403, message: 'You have invalid Token to access this API!'};
-
-   if (!auth) return res.status(401).send(res1);
-   const token = auth.split(' ')[1];
-
-   jwt.verify(token, process.env.ACCESS_TOKEN, (error, decoded) => {
-      if (error) return res.status(403).send(res2);
-      req.decoded = decoded;
-      next();
-   });
+function verifyAdmin(req, res, next) {
+   if (req?.user?.role !== 'admin') {
+      return res.status(403).send({
+         status: 403,
+         message: 'Opps, Forbidden! You are not an Admin!',
+      });
+   }
+   next();
 }
 
 async function runDatabase() {
@@ -45,23 +40,31 @@ async function runDatabase() {
       const reviews = dbClient.db('pmphas12').collection('reviews');
       const orders = dbClient.db('pmphas12').collection('orders');
 
-      // [===>>>) Verify Admin Middleware Starts Here (<<<===] //
+      // [===>>>) Verify User Middleware Starts Here (<<<===] //
 
-      async function verifyAdmin(req, res, next) {
-         const email = req?.decoded?.email;
-         const user = await users.findOne({email});
-         if (user?.role === 'admin') next();
-         else
-            res.status(403).send({
-               status: 403,
-               message: 'Forbidden! You are not an Admin!',
-            });
+      function verifyUser(req, res, next) {
+         const auth = req?.headers?.authorization;
+         const res1 = {status: 401, message: "You don't have Authorization to access this API!"};
+         const res2 = {status: 403, message: 'You have invalid Token to access this API!'};
+
+         if (!auth) return res.status(401).send(res1);
+         const token = auth.split(' ')[1];
+
+         jwt.verify(token, process.env.ACCESS_TOKEN, async (error, decoded) => {
+            if (error) return res.status(403).send(res2);
+            const user = await users.findOne({email: decoded?.email});
+            req.user = {
+               email: decoded?.email,
+               role: user?.role,
+            };
+            next();
+         });
       }
 
       // [===>>>) Tokens API Starts Here (<<<===] //
 
       app.post('/token', async (req, res) => {
-         const user = req.body;
+         const user = req?.body;
          const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '1h'});
          res.send({token});
       });
@@ -69,14 +72,25 @@ async function runDatabase() {
       // [===>>>) Users API Starts Here (<<<===] //
 
       app.post('/users', async (req, res) => {
-         const data = req.body;
+         const data = req?.body;
          const result = await users.insertOne(data);
          res.send(result);
       });
 
-      app.get('/user/:email', async (req, res) => {
+      app.get('/users', verifyUser, verifyAdmin, async (req, res) => {
+         const data = await users.find({}).toArray();
+         res.send(data.reverse());
+      });
+
+      app.get('/user/:email', verifyUser, async (req, res) => {
          const email = req?.params?.email;
-         const data = users.findOne({email});
+         if (email !== req?.user?.email) {
+            return res.status(403).send({
+               status: 403,
+               message: 'Opps, Forbidden! You can not access Others Information!',
+            });
+         }
+         const data = await users.findOne({email});
          res.send(data);
       });
    } finally {
