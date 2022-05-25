@@ -59,4 +59,8 @@ export const ManageProductsBody = styled.tbody`
          border-radius: 0.75rem;
       }
    }
+
+   .email {
+      text-transform: lowercase;
+   }
 `;

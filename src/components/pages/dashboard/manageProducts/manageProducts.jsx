@@ -1,45 +1,39 @@
 import React from 'react';
-import Button from '@shared/button';
+import useProducts from '@hooks/useProducts';
+import PageLoader from '@helpers/pageLoader';
+import ProductsCard from './partials/productsCard';
 import {ManageProductsBody, ManageProductsContainer, ManageProductsContent, ManageProductsHeader} from './manageProducts.styled';
 
 export default function ManageProducts() {
-   const array = [1, 2, 3, 4, 5];
+   const {data: products, isLoading} = useProducts();
 
    return (
       <ManageProductsContainer>
-         <ManageProductsContent>
-            <ManageProductsHeader>
-               <tr>
-                  <th>sl no</th>
-                  <th>image</th>
-                  <th>author</th>
-                  <th>product name</th>
-                  <th>price</th>
-                  <th>required</th>
-                  <th>available</th>
-                  <th>actions</th>
-               </tr>
-            </ManageProductsHeader>
-            <ManageProductsBody>
-               {array.map((v, i) => (
-                  <tr key={i}>
-                     <td>01</td>
-                     <td>
-                        <img src='https://i.pravatar.cc/150?img=41' alt='product' />
-                     </td>
-                     <td>pmfoysal</td>
-                     <td>foysal ahmmed</td>
-                     <td>10</td>
-                     <td>20</td>
-                     <td>200</td>
-                     <td>
-                        <Button name='update' small neutral />
-                        <Button name='delete' small danger />
-                     </td>
+         {isLoading ? (
+            <div style={{paddingBottom: '8rem'}}>
+               <PageLoader />
+            </div>
+         ) : (
+            <ManageProductsContent>
+               <ManageProductsHeader>
+                  <tr>
+                     <th>sl no</th>
+                     <th>image</th>
+                     <th>author</th>
+                     <th>product name</th>
+                     <th>price</th>
+                     <th>required</th>
+                     <th>available</th>
+                     <th>actions</th>
                   </tr>
-               ))}
-            </ManageProductsBody>
-         </ManageProductsContent>
+               </ManageProductsHeader>
+               <ManageProductsBody>
+                  {products?.map((data, index) => (
+                     <ProductsCard data={data} key={data._id} index={index} />
+                  ))}
+               </ManageProductsBody>
+            </ManageProductsContent>
+         )}
       </ManageProductsContainer>
    );
 }

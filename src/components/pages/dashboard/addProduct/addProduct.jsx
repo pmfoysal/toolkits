@@ -30,7 +30,7 @@ export default function AddProduct() {
          const requiredOk = isNumber(required, 'Required Quantity');
          const availableOk = isNumber(available, 'Available Stock');
          const detailsOk = isString(details, 'Product Details');
-         const imageOk = isLink(details, 'Product Image');
+         const imageOk = isLink(image, 'Product Image');
 
          const test3 = titleOk && priceOk && requiredOk;
          const test4 = availableOk && detailsOk && imageOk;
