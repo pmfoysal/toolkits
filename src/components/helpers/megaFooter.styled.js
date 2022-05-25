@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MegaFooterContainer = styled.footer`
    padding: 8rem 0;
-   background-color: ${({theme}) => theme.back.card1};
+   background-color: #3a414a;
 
    & > * {
       display: grid;
@@ -44,7 +44,7 @@ export const MegaFooterIconArea = styled.nav`
    }
 
    p {
-      color: ${({theme}) => theme.text.main.para};
+      color: ${({theme}) => theme.text.sub.para};
       max-width: 35rem;
 
       @media screen and (max-width: 900px) {

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
    width: 100%;
-   background-color: ${({theme}) => theme.back.accent};
+   background-color: #1d2025;
    padding: 2.5rem;
 
    & > * {
@@ -16,7 +16,7 @@ export const FooterPara = styled.p`
    text-align: center;
    text-transform: capitalize;
    font-size: 1.5rem;
-   color: ${({theme}) => theme.text.main.title};
+   color: ${({theme}) => theme.text.sub.title};
 `;
 
 export const FooterLink = styled.a`
