@@ -1,10 +1,11 @@
 import {toast} from 'react-toastify';
+import pmaxios from '@middlewares/pmaxios';
 import auth from '@configs/firebase.config';
-import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import userEmailVerify from './userEmailVerify';
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 
 export default function emailPassSignup(data) {
-   const {email, password, image, name} = data;
+   const {email, password, image, name, phone} = data;
    const tId = toast.loading('Please Wait! Connecting to The Server...');
    createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
@@ -13,6 +14,12 @@ export default function emailPassSignup(data) {
                render: 'Account Created! Updating Your Profile Information...!',
             });
             userProfileUpdate(tId, image, name);
+            pmaxios
+               .put(`/user/${email}`, {email, image, name, phone})
+               .then(res => {})
+               .catch(error => {
+                  toast.error(error.message);
+               });
          }
       })
       .catch(error => {

@@ -1,4 +1,5 @@
 import auth from '@configs/firebase.config';
+import pmaxios from '@middlewares/pmaxios';
 import {onAuthStateChanged} from 'firebase/auth';
 import React, {createContext, useEffect, useState} from 'react';
 
@@ -13,7 +14,7 @@ export default function StoreProvider({children}) {
       onAuthStateChanged(auth, u => {
          if (u) {
             setUser(u);
-            // get token and role from backend
+            pmaxios.get('/users');
          } else {
             setUser({});
          }
