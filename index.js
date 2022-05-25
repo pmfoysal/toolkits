@@ -107,6 +107,11 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/blogs', async (req, res) => {
+         const data = await blogs.find({}).toArray();
+         res.send(data.reverse());
+      });
+
       app.get('/products/:user', verifyUser, async (req, res) => {
          const email = req.params.user;
          const authEmail = req.decoded.email;
