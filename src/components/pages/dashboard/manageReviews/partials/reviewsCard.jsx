@@ -1,5 +1,5 @@
-import Button from '@shared/button';
 import React from 'react';
+import Button from '@shared/button';
 import {useNavigate} from 'react-router-dom';
 
 export default function ReviewsCard({data, index, admin}) {

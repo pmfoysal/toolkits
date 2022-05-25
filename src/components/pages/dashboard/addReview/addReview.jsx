@@ -58,7 +58,7 @@ export default function AddReview() {
    }
 
    useEffect(() => {
-      if (ratings && review) setDisable(false);
+      if (ratings && review && Number(ratings) > 0 && Number(ratings) < 6) setDisable(false);
       else setDisable(true);
    }, [ratings, review]);
 
