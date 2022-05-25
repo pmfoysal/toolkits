@@ -5,7 +5,7 @@ import ProductsCard from './partials/productsCard';
 import {ManageProductsBody, ManageProductsContainer, ManageProductsContent, ManageProductsHeader} from './manageProducts.styled';
 
 export default function ManageProducts() {
-   const {data: products, isLoading} = useProducts();
+   const {data: products, isLoading, refetch} = useProducts();
 
    return (
       <ManageProductsContainer>
@@ -29,7 +29,7 @@ export default function ManageProducts() {
                </ManageProductsHeader>
                <ManageProductsBody>
                   {products?.map((data, index) => (
-                     <ProductsCard data={data} key={data._id} index={index} />
+                     <ProductsCard data={data} key={data._id} index={index} refetch={refetch} />
                   ))}
                </ManageProductsBody>
             </ManageProductsContent>

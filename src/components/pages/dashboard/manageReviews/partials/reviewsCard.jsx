@@ -16,7 +16,7 @@ export default function ReviewsCard({data, index, admin, refetch}) {
    }
 
    function deleteHandler() {
-      const tId = toast.loading('Please Wait! Updating to Database...');
+      const tId = toast.loading('Please Wait! This Review Deleting From Database...');
       pmaxios
          .delete(`/review/${_id}`)
          .then(res => {

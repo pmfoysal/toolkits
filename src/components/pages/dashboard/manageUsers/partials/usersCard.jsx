@@ -59,7 +59,7 @@ export default function UsersCard({data, index, refetch}) {
          <td>{role || 'user'}</td>
          <td>
             {admin ? (
-               <Button name='suspend' small danger handler={popupOpernar} />
+               <Button name='remove admin' small danger handler={popupOpernar} />
             ) : (
                <Button name='make admin' small handler={makeAdmin} />
             )}
