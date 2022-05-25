@@ -59,13 +59,19 @@ async function runDatabase() {
 
       app.post('/users', async (req, res) => {
          const data = req.body;
-         const result = await products.insertOne(data);
+         const result = await users.insertOne(data);
          res.send(result);
       });
 
       app.post('/products', async (req, res) => {
          const data = req.body;
          const result = await products.insertOne(data);
+         res.send(result);
+      });
+
+      app.post('/reviews', async (req, res) => {
+         const data = req.body;
+         const result = await reviews.insertOne(data);
          res.send(result);
       });
 
