@@ -133,6 +133,12 @@ async function runDatabase() {
          const result = await blogs.updateOne(filter, data, options);
          res.send(result);
       });
+
+      app.delete('/blog/:id', verifyUser, verifyAdmin, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const result = await blogs.deleteOne(filter);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
