@@ -18,7 +18,7 @@ export const HeaderPart1 = styled.div`
       align-items: center;
       justify-content: space-between;
 
-      & > *:nth-child(2) {
+      & > *:nth-child(3) {
          position: absolute;
          top: 50%;
          left: 50%;
@@ -31,4 +31,8 @@ export const HeaderPart2 = styled.div`
    width: 100%;
    padding: 1.5rem 0;
    background-color: ${({theme}) => theme.back.page};
+
+   @media screen and (max-width: 650px) {
+      display: none;
+   }
 `;

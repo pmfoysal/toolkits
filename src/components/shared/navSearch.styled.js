@@ -23,4 +23,16 @@ export const NavSearchContainer = styled.nav`
          transform: none;
       }
    }
+
+   @media screen and (max-width: 1000px) {
+      width: 40rem;
+   }
+
+   @media screen and (max-width: 850px) {
+      width: 30rem;
+   }
+
+   @media screen and (max-width: 750px) {
+      display: none;
+   }
 `;

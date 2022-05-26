@@ -19,7 +19,7 @@ export default function App() {
          <Header />
          <Suspense fallback={<PageLoader />}>
             <Routes>
-               <Route path='/' element={<Home />} />
+               {/* <Route path='/' element={<Home />} /> */}
                <Route path='/blogs' element={<Blogs />} />
                <Route path='/forget' element={<Forget />} />
                <Route path='/contact' element={<Contact />} />
@@ -50,7 +50,7 @@ export default function App() {
                      </React.Fragment>
                   )}
                </Route>
-               <Route path='*' element={<NotFound />} />
+               {/* <Route path='*' element={<NotFound />} /> */}
             </Routes>
          </Suspense>
          <MegaFooter />

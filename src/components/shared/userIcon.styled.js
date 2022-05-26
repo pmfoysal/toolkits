@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export const UserIconContainer = styled.div`
    display: inline-block;
+
+   @media screen and (max-width: 650px) {
+      display: ${({main}) => (main ? 'none' : 'inline-block')};
+   }
 `;
 
 export const UserIconImage = styled.img`
@@ -37,6 +41,12 @@ export const UserIconWindow = styled.div`
    flex-direction: column;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
+
+   @media screen and (max-width: 650px) {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+   }
 `;
 
 export const UserWindowImage = styled.img`

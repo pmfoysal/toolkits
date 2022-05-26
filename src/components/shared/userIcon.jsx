@@ -15,7 +15,7 @@ import {
 } from './userIcon.styled';
 import {useLocation} from 'react-router-dom';
 
-export default function UserIcon({user, role}) {
+export default function UserIcon({user, role, main}) {
    const admin = role === 'admin';
    const {pathname} = useLocation();
    const [active, setActive] = useState(false);
@@ -29,7 +29,7 @@ export default function UserIcon({user, role}) {
    }
 
    return (
-      <UserIconContainer>
+      <UserIconContainer main={main}>
          <UserIconImage src={user?.photoURL || avatar} alt='user' onClick={clickHandler} />
          {active && (
             <UserIconWindow>

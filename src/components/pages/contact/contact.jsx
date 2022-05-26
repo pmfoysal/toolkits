@@ -47,7 +47,8 @@ export default function Contact() {
                   <ContactTouchArea>
                      <ContactTouchTitle>get in touch</ContactTouchTitle>
                      <ContactPara>
-                        Suitable for Hardware Market, Store, Tools, Parts, Online Shop related shopping Website.
+                        ToolKits is the best parts shop for your car accessories. What kind of parts do you need? you can get here
+                        all latest card parts!
                      </ContactPara>
                      <ContactTouchCards>
                         {contactData.map(data => (
@@ -59,7 +60,8 @@ export default function Contact() {
                   <ContactTouchArea>
                      <ContactTouchTitle>give your feedback</ContactTouchTitle>
                      <ContactPara>
-                        Suitable for Hardware Market, Store, Tools, Parts, Online Shop related shopping Website.
+                        ToolKits is the best parts shop for your car accessories. What kind of parts do you need? you can get here
+                        all latest card parts!
                      </ContactPara>
                      <ContactFormBg>
                         <ContactForm>
