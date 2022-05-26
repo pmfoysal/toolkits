@@ -68,4 +68,10 @@ export const DasboardContent = styled.div`
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
    align-self: flex-start;
+   overflow: auto;
+
+   ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+   }
 `;
