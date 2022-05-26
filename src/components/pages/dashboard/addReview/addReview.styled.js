@@ -23,4 +23,8 @@ export const AddReviewForm = styled.div`
       width: 20rem;
       margin: 2rem auto;
    }
+
+   @media screen and (max-width: 1150px) {
+      width: 100%;
+   }
 `;

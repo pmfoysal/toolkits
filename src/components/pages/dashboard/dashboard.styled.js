@@ -9,12 +9,12 @@ export const DasboardContainer = styled.section`
       grid-template-columns: 25rem 1fr;
       gap: 4rem;
 
-      @media screen and (max-width: 750px) {
+      @media screen and (max-width: 800px) {
          grid-template-columns: 1fr;
       }
    }
 
-   @media screen and (max-width: 750px) {
+   @media screen and (max-width: 800px) {
       padding: 5rem 0;
    }
 `;
@@ -28,11 +28,15 @@ export const DashboardNav = styled.nav`
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
 
-   @media screen and (max-width: 750px) {
+   @media screen and (max-width: 800px) {
       flex-direction: row;
       text-align: center;
       flex-wrap: wrap;
       justify-content: center;
+   }
+
+   @media screen and (max-width: 350px) {
+      flex-direction: column;
    }
 `;
 
@@ -53,7 +57,7 @@ export const DashboardNavLink = styled(Link)`
       background-color: ${({theme}) => theme.back.accent};
    }
 
-   @media screen and (max-width: 750px) {
+   @media screen and (max-width: 800px) {
       width: auto;
    }
 `;

@@ -35,10 +35,10 @@ export const AddProductInputGroup = styled.div`
    grid-template-columns: repeat(3, 1fr);
    gap: 2rem;
 
-   @media screen and (max-width: 800px) {
+   @media screen and (max-width: 500px) {
       grid-template-columns: repeat(2, 1fr);
 
-      & > *:nth-child(3) {
+      & > *:last-child {
          grid-column: span 2;
       }
    }
