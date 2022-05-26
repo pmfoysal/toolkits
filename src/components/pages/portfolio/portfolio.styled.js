@@ -15,6 +15,22 @@ export const PortfolioCard = styled.article`
    flex-direction: column;
    align-items: center;
    gap: 4rem;
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem 5rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem 4rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem 2rem;
+   }
 `;
 
 export const PortfolioCardLeft = styled.div`
@@ -35,6 +51,10 @@ export const PortfolioCardLeft = styled.div`
       transform: translateX(-50%);
       background-color: ${({theme}) => theme.back.accent};
       opacity: 0.3;
+
+      @media screen and (max-width: 300px) {
+         width: 80%;
+      }
    }
 `;
 
@@ -161,4 +181,11 @@ export const PortfolioProjects = styled.div`
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    gap: 3rem;
+
+   @media screen and (max-width: 950px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
 `;

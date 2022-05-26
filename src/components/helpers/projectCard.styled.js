@@ -13,6 +13,14 @@ export const ProjectCardContainer = styled.a`
          transform: translateY(${({size}) => size * -1 + 'px'});
       }
    }
+
+   @media screen and (max-width: 950px) {
+      max-width: 32rem;
+   }
+
+   @media screen and (max-width: 870px) {
+      max-width: 50rem;
+   }
 `;
 
 export const ProjectCardImage = styled.figure`
