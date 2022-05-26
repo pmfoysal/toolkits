@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 export const ContactContainer = styled.section`
    padding: 8rem 0;

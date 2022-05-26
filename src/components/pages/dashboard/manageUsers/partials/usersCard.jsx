@@ -6,7 +6,7 @@ import Confirm from '@helpers/confirm';
 
 export default function UsersCard({data, index, refetch}) {
    const serial = index + 1 < 10 ? `0${index + 1}` : index + 1;
-   const {_id, image, name, email, phone, role} = data;
+   const {image, name, email, phone, role} = data;
    const admin = role === 'admin';
    const [active, setActive] = useState(false);
 

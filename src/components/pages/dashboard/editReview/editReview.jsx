@@ -43,6 +43,7 @@ export default function EditReview() {
             .put(`/review/${urlId}`, data)
             .then(res => {
                if (res?.data?.acknowledged) {
+                  refetch();
                   toast.update(tId, {
                      render: 'Your Review Successfully Updated to Database!',
                      type: 'success',

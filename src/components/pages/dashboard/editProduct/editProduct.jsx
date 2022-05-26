@@ -1,16 +1,15 @@
 import Button from '@shared/button';
-import React, {useContext, useEffect, useState} from 'react';
 import Inputbox from '@shared/inputbox';
 import isString from '@validations/isString';
 import isNumber from '@validations/isNumber';
-import {StoreContext} from '@contexts/storeProvider';
 import pmaxios from '@middlewares/pmaxios';
 import {toast} from 'react-toastify';
 import isLink from '@validations/isLink';
-import {EditProductContainer, EditProductForm, EditProductInputGroup, EditProductTitle} from './editProduct.styled';
 import {useParams} from 'react-router-dom';
 import useProduct from '@hooks/useProduct';
 import PageLoader from '@helpers/pageLoader';
+import React, {useEffect, useState} from 'react';
+import {EditProductContainer, EditProductForm, EditProductInputGroup, EditProductTitle} from './editProduct.styled';
 
 export default function EditProduct() {
    const {id: urlId} = useParams();
