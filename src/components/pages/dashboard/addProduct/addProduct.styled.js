@@ -10,6 +10,7 @@ export const AddProductContainer = styled.article`
 export const AddProductTitle = styled.h1`
    font-size: 3rem;
    color: ${({theme}) => theme.text.main.head};
+   text-align: center;
 `;
 
 export const AddProductForm = styled.div`
@@ -23,10 +24,27 @@ export const AddProductForm = styled.div`
       width: 20rem;
       margin: 2rem auto;
    }
+
+   @media screen and (max-width: 1180px) {
+      width: 100%;
+   }
 `;
 
 export const AddProductInputGroup = styled.div`
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    gap: 2rem;
+
+   @media screen and (max-width: 800px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      & > *:nth-child(3) {
+         grid-column: span 2;
+      }
+   }
+
+   @media screen and (max-width: 450px) {
+      display: flex;
+      flex-direction: column;
+   }
 `;

@@ -8,6 +8,14 @@ export const DasboardContainer = styled.section`
       display: grid;
       grid-template-columns: 25rem 1fr;
       gap: 4rem;
+
+      @media screen and (max-width: 750px) {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   @media screen and (max-width: 750px) {
+      padding: 5rem 0;
    }
 `;
 
@@ -19,6 +27,13 @@ export const DashboardNav = styled.nav`
    border-radius: 2.5rem;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
+
+   @media screen and (max-width: 750px) {
+      flex-direction: row;
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
 `;
 
 export const DashboardNavLink = styled(Link)`
@@ -36,6 +51,10 @@ export const DashboardNavLink = styled(Link)`
    &.active,
    &:hover {
       background-color: ${({theme}) => theme.back.accent};
+   }
+
+   @media screen and (max-width: 750px) {
+      width: auto;
    }
 `;
 
