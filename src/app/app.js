@@ -28,7 +28,7 @@ export default function App() {
                <Route path='/blogs/:id' element={<BlogDetails />} />
                <Route path='/signin' element={<Signin user={user} />} />
                <Route path='/signup' element={<Signup user={user} />} />
-               <Route path='/purchase' element={<RequireUser user={user} then={<Purchase />} />} />
+               <Route path='/purchase/:id' element={<RequireUser user={user} then={<Purchase />} />} />
                <Route path='/dashboard' element={<RequireUser user={user} then={<Dashboard />} />}>
                   <Route index element={<UserProfile />} />
                   <Route path='profile' element={<UserProfile />} />
