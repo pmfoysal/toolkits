@@ -89,6 +89,7 @@ export const AuthHead = styled.h1`
    font-size: 3.6rem;
    color: ${({theme}) => theme.back.accent};
    margin-top: 2rem;
+   text-align: center;
 `;
 
 export const AuthTitle = styled.h2`
@@ -97,6 +98,7 @@ export const AuthTitle = styled.h2`
    font-weight: 550;
    margin-top: 1.5rem;
    margin-bottom: 0.5rem;
+   text-align: center;
 `;
 
 export const AuthPara = styled.p`
@@ -105,6 +107,10 @@ export const AuthPara = styled.p`
    strong {
       font-weight: 700;
       text-transform: capitalize;
+   }
+
+   @media screen and (max-width: 500px) {
+      text-align: center;
    }
 `;
 
@@ -121,6 +127,10 @@ export const AuthInputGroup = styled.div`
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 1.5rem;
+
+   @media screen and (max-width: 450px) {
+      grid-template-columns: 1fr;
+   }
 `;
 
 export const AuthOr = styled.div`
