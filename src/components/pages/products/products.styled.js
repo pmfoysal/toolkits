@@ -13,4 +13,24 @@ export const ProductsContent = styled.article`
    background-color: ${({theme}) => theme.back.card0};
    padding: 8rem;
    border-radius: 3rem;
+
+   @media screen and (max-width: 1350px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 7rem;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem 2rem;
+   }
 `;
