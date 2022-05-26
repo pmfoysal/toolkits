@@ -18,9 +18,6 @@ export default function HomeReviews() {
                   {reviews?.slice(0, 3)?.map(data => (
                      <ReviewCard data={data} key={data._id} />
                   ))}
-                  {reviews?.slice(0, 3)?.map(data => (
-                     <ReviewCard data={data} key={data._id} />
-                  ))}
                </HomeReviewsCards>
             )}
          </MainContainer>

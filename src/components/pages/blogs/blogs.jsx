@@ -1,8 +1,8 @@
+import React from 'react';
 import BlogCard from '@helpers/blogCard';
 import PageLoader from '@helpers/pageLoader';
 import useBlogs from '@hooks/useBlogs';
 import MainContainer from '@shared/mainContainer';
-import React from 'react';
 import {BlogsContainer, BlogsContent} from './blogs.styled';
 
 export default function Blogs() {
