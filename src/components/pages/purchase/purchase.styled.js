@@ -5,6 +5,14 @@ export const PurchaseContainer = styled.section`
 
    & > * {
       max-width: 100rem;
+
+      @media screen and (max-width: 1100px) {
+         padding: 0 5rem;
+      }
+
+      @media screen and (max-width: 600px) {
+         padding: 0 2rem;
+      }
    }
 `;
 
@@ -17,6 +25,14 @@ export const PurchaseDetailsArea = styled.article`
    flex-direction: column;
    align-items: center;
    justify-content: center;
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem 2rem;
+   }
 `;
 
 export const PurchaseImage = styled.figure`
@@ -28,6 +44,10 @@ export const PurchaseImage = styled.figure`
 
    img {
       object-fit: contain;
+   }
+
+   @media screen and (max-width: 500px) {
+      width: 100%;
    }
 `;
 
@@ -84,9 +104,15 @@ export const PurchaseOrderArea = styled.article`
       &:focus {
          border-color: ${({theme}) => theme.back.accent};
       }
+
+      @media screen and (max-width: 650px) {
+         width: 100%;
+      }
    }
 
    p {
+      text-align: center;
+
       strong {
          font-weight: 700;
          line-height: inherit;
@@ -140,5 +166,17 @@ export const PurchaseOrderArea = styled.article`
             opacity: 0.65;
          }
       }
+
+      @media screen and (max-width: 450px) {
+         width: 100%;
+      }
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 4rem 3rem;
+   }
+
+   @media screen and (max-width: 450px) {
+      padding: 3rem 2rem;
    }
 `;
