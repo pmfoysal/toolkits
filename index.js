@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const {MongoClient, ServerApiVersion, ObjectId} = require('mongodb');
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -78,6 +79,19 @@ async function runDatabase() {
          const user = req?.body;
          const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '2d'});
          res.send({token});
+      });
+
+      // [===>>>) Stripes API Starts Here (<<<===] //
+
+      app.post('/payment/intent', verifyUser, async (req, res) => {
+         const {price} = req?.body;
+         const amount = Number(price) * 100;
+         const paymentIntent = await stripe.paymentIntents.create({
+            amount,
+            currency: 'usd',
+            payment_method_type: ['card'],
+         });
+         res.send({clientSecret: paymentIntent.client_secret});
       });
 
       // [===>>>) Users API Starts Here (<<<===] //
