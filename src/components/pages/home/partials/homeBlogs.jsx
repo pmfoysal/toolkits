@@ -17,12 +17,6 @@ export default function HomeBlogs() {
                {blogs?.slice(0, 3)?.map(data => (
                   <BlogCard data={data} key={data._id} />
                ))}
-               {blogs?.slice(0, 3)?.map(data => (
-                  <BlogCard data={data} key={data._id} />
-               ))}
-               {blogs?.slice(0, 3)?.map(data => (
-                  <BlogCard data={data} key={data._id} />
-               ))}
             </MainContainer>
          )}
       </HomeBlogsContainer>

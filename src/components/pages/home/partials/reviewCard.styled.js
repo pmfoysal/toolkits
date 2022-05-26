@@ -10,6 +10,30 @@ export const ReviewCardContainer = styled.summary`
    flex-direction: column;
    padding: 5rem;
    border-radius: 3rem;
+
+   @media screen and (max-width: 1350px) {
+      max-width: 55rem;
+   }
+
+   @media screen and (max-width: 1250px) {
+      max-width: 50rem;
+   }
+
+   @media screen and (max-width: 1150px) {
+      max-width: 45rem;
+   }
+
+   @media screen and (max-width: 1050px) {
+      max-width: 75rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 2rem;
+   }
 `;
 
 export const ReviewCardImage = styled.figure`

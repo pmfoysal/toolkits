@@ -16,8 +16,8 @@ export default function Home() {
          <HomeProducts />
          <SectionTitle>latest blogs</SectionTitle>
          <HomeBlogs />
-         {/* <SectionTitle>customers review</SectionTitle> */}
-         {/* <HomeReviews /> */}
+         <SectionTitle>customers review</SectionTitle>
+         <HomeReviews />
          {/* <HomeSubscribe /> */}
       </React.Fragment>
    );
