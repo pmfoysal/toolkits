@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ManageProductsContainer = styled.article``;
 
 export const ManageProductsContent = styled.table`
-   width: 100%;
+   width: 115rem;
    border-radius: 2rem;
    overflow: hidden;
 `;
