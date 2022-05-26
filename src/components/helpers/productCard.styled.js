@@ -11,6 +11,26 @@ export const ProductCardContainer = styled.summary`
    &:hover {
       box-shadow: ${({theme}) => theme.back.shadow2};
    }
+
+   @media screen and (max-width: 1350px) {
+      width: 45rem;
+   }
+
+   @media screen and (max-width: 1200px) {
+      width: 40rem;
+   }
+
+   @media screen and (max-width: 1100px) {
+      width: 35rem;
+   }
+
+   @media screen and (max-width: 920px) {
+      width: 45rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      width: 100%;
+   }
 `;
 
 export const ProductCardImage = styled.figure`
@@ -24,6 +44,10 @@ export const ProductCardImage = styled.figure`
 
    img {
       object-fit: contain;
+   }
+
+   @media screen and (max-width: 500px) {
+      aspect-ratio: 2/1.5;
    }
 `;
 
@@ -66,6 +90,14 @@ export const ProductCardTagsGroup = styled.div`
    grid-template-columns: repeat(2, 1fr);
    width: 100%;
    gap: 2rem;
+
+   @media screen and (max-width: 500px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+   }
 `;
 
 export const ProductCardTags = styled.p`

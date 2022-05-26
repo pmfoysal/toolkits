@@ -12,4 +12,35 @@ export const HomeProductsContent = styled.article`
    padding: 8rem 10rem;
    border-radius: 3rem;
    margin: 0 auto;
+
+   @media screen and (max-width: 1450px) {
+      padding: 6rem 8rem;
+   }
+
+   @media screen and (max-width: 1400px) {
+      padding: 7rem;
+   }
+
+   @media screen and (max-width: 1350px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
+
+   @media screen and (max-width: 1000px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 2rem;
+   }
+
+   @media screen and (max-width: 330px) {
+      padding: 1.5rem;
+   }
 `;

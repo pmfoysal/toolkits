@@ -31,10 +31,14 @@ export default function ManageReviews() {
                </ManageReviewsHeader>
                <ManageReviewsBody>
                   {admin
-                     ? reviews?.map((data, index) => <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />)
+                     ? reviews?.map((data, index) => (
+                          <ReviewsCard data={data} key={data._id} index={index} admin={admin} refetch={refetch} />
+                       ))
                      : reviews
                           ?.filter(v => v?.email === email)
-                          ?.map((data, index) => <ReviewsCard data={data} index={index} admin={admin} refetch={refetch} />)}
+                          ?.map((data, index) => (
+                             <ReviewsCard data={data} key={data._id} index={index} admin={admin} refetch={refetch} />
+                          ))}
                </ManageReviewsBody>
             </ManageReviewsContent>
          )}
