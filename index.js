@@ -210,6 +210,12 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
+      app.get('/order/:id', verifyUser, async (req, res) => {
+         const filter = {_id: ObjectId(req?.params?.id)};
+         const data = await orders.findOne(filter);
+         res.send(data);
+      });
+
       app.put('/order/:id', verifyUser, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
