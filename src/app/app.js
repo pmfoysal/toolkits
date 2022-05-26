@@ -8,7 +8,7 @@ import React, {Suspense, useContext} from 'react';
 import {StoreContext} from '@contexts/storeProvider';
 import {Blogs, Contact, Dashboard, Forget, Home, NotFound} from '@pages';
 import {BlogDetails, Portfolio, Products, Purchase, Signin, Signup} from '@pages';
-import {ManageOrders, ManageProducts, ManageReviews, UserProfile} from '@dashboard';
+import {ManageOrders, ManageProducts, ManageReviews, OrderPayment, UserProfile} from '@dashboard';
 import {AddProduct, AddReview, EditProduct, EditReview, ManageUsers} from '@dashboard';
 import MegaFooter from '@helpers/megaFooter';
 
@@ -38,6 +38,7 @@ export default function App() {
                      <React.Fragment>
                         <Route path='add/review' element={<AddReview />} />
                         <Route path='edit/review/:id' element={<EditReview />} />
+                        <Route path='orders/payment/:id' element={<OrderPayment />} />
                      </React.Fragment>
                   )}
                   {role === 'admin' && (
