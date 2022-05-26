@@ -101,13 +101,13 @@ async function runDatabase() {
          res.send(data.reverse());
       });
 
-      app.get('/user/:email', async (req, res) => {
+      app.get('/user/:email', verifyUser, async (req, res) => {
          const email = req?.params?.email;
          const data = await users.findOne({email});
          res.send(data);
       });
 
-      app.put('/user/:email', async (req, res) => {
+      app.put('/user/:email', verifyUser, async (req, res) => {
          const email = req?.params?.email;
          const options = {upsert: true};
          const data = {$set: req?.body};
@@ -166,7 +166,7 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/product/:id', verifyUser, async (req, res) => {
+      app.put('/product/:id', verifyUser, verifyAdmin, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
          const data = {$set: req?.body};
@@ -187,7 +187,7 @@ async function runDatabase() {
          res.send(result);
       });
 
-      app.get('/reviews', verifyUser, async (req, res) => {
+      app.get('/reviews', async (req, res) => {
          const data = await reviews.find({}).toArray();
          res.send(data.reverse());
       });
