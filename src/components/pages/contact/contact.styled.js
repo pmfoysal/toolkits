@@ -26,6 +26,14 @@ export const ContactFormBg = styled.div`
    padding: 8rem;
    border-radius: 2.5rem;
    background-color: ${({theme}) => theme.back.card0};
+
+   @media screen and (max-width: 1000px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem 2rem;
+   }
 `;
 
 export const ContactForm = styled.div`
@@ -37,12 +45,21 @@ export const ContactForm = styled.div`
    border-radius: 2.5rem;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: ${({theme}) => theme.back.shadow1};
+
+   @media screen and (max-width: 600px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem 2rem;
+   }
 `;
 
 export const ContactTouchTitle = styled.h1`
    font-size: 3.2rem;
    color: ${({theme}) => theme.text.main.head};
    margin-bottom: 2rem;
+   text-align: center;
 `;
 
 export const ContactPara = styled.p`
