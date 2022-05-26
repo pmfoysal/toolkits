@@ -9,6 +9,7 @@ export const ButtonContainer = styled.button`
    line-height: 1;
    transition: 0.1s ease;
    z-index: 3;
+   white-space: nowrap;
    ${({medium, small}) => setSize(medium, small)};
    ${({theme, sub, danger, success, neutral}) => setColor(theme, sub, danger, success, neutral)};
 

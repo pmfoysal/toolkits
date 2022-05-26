@@ -11,14 +11,14 @@ export default function Home() {
    return (
       <React.Fragment>
          <HomeBanner />
-         {/* <HomeSummary />
-         <SectionTitle>latest products</SectionTitle>
-         <HomeProducts />
-         <SectionTitle>latest blogs</SectionTitle>
-         <HomeBlogs />
-         <SectionTitle>customers review</SectionTitle>
-         <HomeReviews />
-         <HomeSubscribe /> */}
+         <HomeSummary />
+         {/* <SectionTitle>latest products</SectionTitle> */}
+         {/* <HomeProducts /> */}
+         {/* <SectionTitle>latest blogs</SectionTitle> */}
+         {/* <HomeBlogs /> */}
+         {/* <SectionTitle>customers review</SectionTitle> */}
+         {/* <HomeReviews /> */}
+         {/* <HomeSubscribe /> */}
       </React.Fragment>
    );
 }
