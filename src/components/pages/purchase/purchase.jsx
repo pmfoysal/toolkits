@@ -8,6 +8,7 @@ import Button from '@shared/button';
 import ImgLoader from '@shared/imgLoader';
 import MainContainer from '@shared/mainContainer';
 import React, {useContext, useEffect, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import {useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {
@@ -16,8 +17,6 @@ import {
    PurchaseDetailsArea,
    PurchaseImage,
    PurchaseOrderArea,
-   PurchaseOrderButtons,
-   PurchaseOrderInputs,
    PurchasePara,
    PurchaseTitle,
 } from './purchase.styled';
@@ -29,10 +28,14 @@ export default function Purchase() {
    const {data: product = {}, isLoading, refetch} = useProduct(urlId);
    const {image, title, email, price, required, available, details} = product;
 
-   const [total, setTotal] = useState('');
    const [orderQuantity, setOrderQuantity] = useState('');
-   const [orderDisable, setOrderDisable] = useState(false);
-   const [paymentDisable, setPaymentDisable] = useState(true);
+   const [disable, setDisable] = useState(false);
+
+   const {
+      register,
+      handleSubmit,
+      formState: {errors},
+   } = useForm();
 
    function inputHandler(setter) {
       return function (event) {
@@ -52,30 +55,31 @@ export default function Purchase() {
       setOrderQuantity(prev => Number(prev) + 1);
    }
 
-   const data = {
-      title,
-      price,
-      quantity: orderQuantity,
-      total: Number(orderQuantity) * Number(price),
-      status: 'unpaid',
-      email: user?.email,
-      name: dbUser?.name,
-      phone: dbUser?.phone,
-      date: Date.now(),
-   };
+   function orderHandler(data) {
+      const order = {
+         title,
+         price,
+         quantity: orderQuantity,
+         total: Number(orderQuantity) * Number(price),
+         status: 'unpaid',
+         email: user?.email,
+         name: dbUser?.name,
+         phone: data?.newPhone,
+         address: data?.newAddress,
+         date: Date.now(),
+      };
 
-   function orderHandler() {
       if (Number(orderQuantity) > Number(available)) {
          toast.error(`You Can Not Order More Than ${available} pcs!`);
-         setOrderDisable(true);
+         setDisable(true);
       } else if (Number(orderQuantity) < Number(required)) {
          toast.error(`You Can Not Order Less Than ${required} pcs!`);
-         setOrderDisable(true);
+         setDisable(true);
       } else {
-         setOrderDisable(true);
+         setDisable(true);
          const tId = toast.loading('Please Wait! Placing Your Order to Database...');
          pmaxios
-            .post('/orders', data)
+            .post('/orders', order)
             .then(res => {
                if (res?.data?.acknowledged) {
                   toast.update(tId, {
@@ -108,12 +112,18 @@ export default function Purchase() {
    }
 
    useEffect(() => {
+      if (errors?.newPhone?.type === 'required') toast.error('Please Provide Your Phone Number!');
+      if (errors?.newPhone?.type === 'maxLength') toast.error('Your Phone Number Cannot Greater Than 16!');
+      if (errors?.newAddress?.type === 'required') toast.error('Please Provide Your Delivery Address!');
+   }, [errors?.newPhone, errors?.newAddress]);
+
+   useEffect(() => {
       formUpdater();
    }, [product]);
 
    useEffect(() => {
-      if (!Number(available)) setOrderDisable(true);
-      else setOrderDisable(false);
+      if (!Number(available)) setDisable(true);
+      else setDisable(false);
    }, [orderQuantity, available]);
 
    return (
@@ -132,21 +142,38 @@ export default function Purchase() {
                         <strong>author: </strong> {email?.split('@')[0].toLowerCase()}
                      </PurchasePara>
                      <PurchasePara>
-                        <strong>price: </strong> ${price}/pcs
+                        <strong>price: </strong> ${price || 0}/pcs
                      </PurchasePara>
                      <PurchasePara>
-                        <strong>required: </strong> {required} pcs
+                        <strong>required: </strong> {required || 0} pcs
                      </PurchasePara>
                      <PurchasePara>
-                        <strong>available: </strong> {available} pcs
+                        <strong>available: </strong> {available || 0} pcs
                      </PurchasePara>
                      <PurchaseDetails>
                         <strong>description: </strong> {details}
                      </PurchaseDetails>
                   </PurchaseDetailsArea>
                   <PurchaseOrderArea>
+                     <input type='text' readOnly value={dbUser?.name || ''} />
+                     <input type='email' readOnly value={dbUser?.email || ''} />
+                     <input
+                        type='number'
+                        placeholder='your phone'
+                        {...register('newPhone', {
+                           required: true,
+                           maxLength: 16,
+                        })}
+                     />
+                     <input
+                        type='text'
+                        placeholder='delivery address'
+                        {...register('newAddress', {
+                           required: true,
+                        })}
+                     />
                      <p>
-                        You have to Pay: ${Number(price) * Number(orderQuantity)} (${price} x {orderQuantity})
+                        You have to Pay: <strong>${Number(price) * Number(orderQuantity)}</strong> (${price} x {orderQuantity})
                      </p>
                      <div>
                         <button onClick={decreaseHandler}>
@@ -162,7 +189,7 @@ export default function Purchase() {
                            <Icon icon='fluent:add-24-filled' />
                         </button>
                      </div>
-                     <Button name='place order' round neutral handler={orderHandler} disabled={orderDisable} />
+                     <Button name='place order' round neutral handler={handleSubmit(orderHandler)} disabled={disable} />
                   </PurchaseOrderArea>
                </React.Fragment>
             )}

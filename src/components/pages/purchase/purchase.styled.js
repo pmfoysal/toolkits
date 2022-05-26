@@ -64,12 +64,34 @@ export const PurchaseOrderArea = styled.article`
    border-radius: 3rem;
    background-color: ${({theme}) => theme.back.card0};
    display: grid;
-   gap: 4rem;
+   gap: 3rem;
    margin-top: 8rem;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+
+   input {
+      height: 4.6rem;
+      width: 45rem;
+      padding: 0 1.5rem;
+      border-radius: 0.75rem;
+      background-color: ${({theme}) => theme.back.page};
+      border: 0.2rem solid ${({theme}) => theme.back.border};
+      font-weight: 550;
+      color: ${({theme}) => theme.text.main.head};
+
+      &:focus {
+         border-color: ${({theme}) => theme.back.accent};
+      }
+   }
+
+   p {
+      strong {
+         font-weight: 700;
+         line-height: inherit;
+      }
+   }
 
    div {
       display: flex;
@@ -87,6 +109,8 @@ export const PurchaseOrderArea = styled.article`
          background-color: transparent;
          padding: 0 2rem;
          text-align: center;
+         border-color: transparent;
+         border-radius: 0;
       }
 
       button {
