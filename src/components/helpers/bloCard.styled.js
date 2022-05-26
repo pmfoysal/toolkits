@@ -12,8 +12,20 @@ export const BlogCardContainer = styled.article`
       box-shadow: ${({theme}) => theme.back.shadow2};
    }
 
-   @media screen and (max-width: 850px) {
+   @media screen and (max-width: 1200px) {
       max-width: 50rem;
+   }
+
+   @media screen and (max-width: 1150px) {
+      max-width: 45rem;
+   }
+
+   @media screen and (max-width: 1050px) {
+      max-width: 40rem;
+   }
+
+   @media screen and (max-width: 920px) {
+      max-width: 55rem;
    }
 `;
 

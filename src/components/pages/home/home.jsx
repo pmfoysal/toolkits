@@ -14,8 +14,8 @@ export default function Home() {
          <HomeSummary />
          <SectionTitle>latest products</SectionTitle>
          <HomeProducts />
-         {/* <SectionTitle>latest blogs</SectionTitle> */}
-         {/* <HomeBlogs /> */}
+         <SectionTitle>latest blogs</SectionTitle>
+         <HomeBlogs />
          {/* <SectionTitle>customers review</SectionTitle> */}
          {/* <HomeReviews /> */}
          {/* <HomeSubscribe /> */}
