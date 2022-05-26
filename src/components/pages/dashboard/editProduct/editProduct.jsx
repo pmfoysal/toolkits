@@ -10,10 +10,11 @@ import isLink from '@validations/isLink';
 import {EditProductContainer, EditProductForm, EditProductInputGroup, EditProductTitle} from './editProduct.styled';
 import {useParams} from 'react-router-dom';
 import useProduct from '@hooks/useProduct';
+import PageLoader from '@helpers/pageLoader';
 
 export default function EditProduct() {
    const {id: urlId} = useParams();
-   const {data: product = {}, refetch} = useProduct(urlId);
+   const {data: product = {}, isLoading, refetch} = useProduct(urlId);
    const [disable, setDisable] = useState(true);
    const [title, setTitle] = useState('');
    const [image, setImage] = useState('');
@@ -107,18 +108,24 @@ export default function EditProduct() {
 
    return (
       <EditProductContainer>
-         <EditProductTitle>update a product</EditProductTitle>
-         <EditProductForm>
-            <Inputbox name='product title' type='text' value={title} handler={inputHandler(setTitle)} />
-            <Inputbox name='product image' type='url' value={image} handler={inputHandler(setImage)} />
-            <EditProductInputGroup>
-               <Inputbox name='price' type='number' value={price} handler={inputHandler(setPrice)} />
-               <Inputbox name='required' type='number' value={required} handler={inputHandler(setRequired)} />
-               <Inputbox name='available' type='number' value={available} handler={inputHandler(setAvailable)} />
-            </EditProductInputGroup>
-            <Inputbox name='product description' line='10' value={details} handler={inputHandler(setDetails)} />
-            <Button name='update' disabled={disable} handler={submitHandler} />
-         </EditProductForm>
+         {isLoading ? (
+            <PageLoader />
+         ) : (
+            <React.Fragment>
+               <EditProductTitle>update a product</EditProductTitle>
+               <EditProductForm>
+                  <Inputbox name='product title' type='text' value={title} handler={inputHandler(setTitle)} />
+                  <Inputbox name='product image' type='url' value={image} handler={inputHandler(setImage)} />
+                  <EditProductInputGroup>
+                     <Inputbox name='price' type='number' value={price} handler={inputHandler(setPrice)} />
+                     <Inputbox name='required' type='number' value={required} handler={inputHandler(setRequired)} />
+                     <Inputbox name='available' type='number' value={available} handler={inputHandler(setAvailable)} />
+                  </EditProductInputGroup>
+                  <Inputbox name='product description' line='10' value={details} handler={inputHandler(setDetails)} />
+                  <Button name='update' disabled={disable} handler={submitHandler} />
+               </EditProductForm>
+            </React.Fragment>
+         )}
       </EditProductContainer>
    );
 }

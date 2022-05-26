@@ -40,6 +40,10 @@ export const InputboxContainer = styled.label`
       line-height: 1.5;
       transition: 0.1s ease;
 
+      ::-webkit-scrollbar {
+         width: 0;
+      }
+
       &:focus {
          border-color: ${({theme}) => theme.back.accent};
          background-color: ${({theme}) => theme.back.page};
