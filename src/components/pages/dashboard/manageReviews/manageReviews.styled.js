@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ManageReviewsContainer = styled.article``;
 
 export const ManageReviewsContent = styled.table`
-   width: 100%;
+   width: 115rem;
    border-radius: 2rem;
    overflow: hidden;
 `;
