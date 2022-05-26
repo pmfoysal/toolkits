@@ -5,7 +5,6 @@ export const ReviewCardContainer = styled.summary`
    background-color: ${({theme}) => theme.back.card0};
    display: flex;
    align-items: center;
-   justify-content: center;
    text-align: center;
    flex-direction: column;
    padding: 5rem;
