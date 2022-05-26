@@ -19,6 +19,7 @@ export const UserProfileName = styled.h1`
    font-size: 3rem;
    margin-top: 2rem;
    color: ${({theme}) => theme.text.main.head};
+   text-align: center;
 `;
 
 export const UserProfileEmail = styled.h3`
@@ -27,6 +28,7 @@ export const UserProfileEmail = styled.h3`
    margin-top: 0.5rem;
    color: ${({theme}) => theme.text.main.para};
    text-transform: lowercase;
+   text-align: center;
 `;
 
 export const UserProfileRole = styled.h3`
@@ -34,6 +36,7 @@ export const UserProfileRole = styled.h3`
    font-weight: 550;
    margin-top: 1rem;
    color: ${({theme}) => theme.text.main.para};
+   text-align: center;
 
    span {
       line-height: inherit;
@@ -49,12 +52,21 @@ export const UserProfileForm = styled.div`
    flex-direction: column;
    gap: 2rem;
    padding: 5rem 0 3rem;
+
+   @media screen and (max-width: 1050px) {
+      width: 100%;
+      padding: 4rem 0 3rem;
+   }
 `;
 
 export const ProfileInputGroup = styled.div`
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 2rem;
+
+   @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+   }
 `;
 
 export const ProfileButtons = styled.div`
