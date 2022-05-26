@@ -1,12 +1,12 @@
 {
-   "name": "pmphas12-server",
+   "name": "toolkits-server",
    "version": "1.0.0",
    "private": true,
    "license": "LICENSE",
    "readme": "README.md",
    "markdown": "github",
    "publisher": "@pmfoysal",
-   "description": "GroceryMenus - Modern Inventory Management Application Designed & Developed by @pmfoysal!",
+   "description": "ToolKits - A Modern Tools Manufacturer Website Design using ReactJS, NodeJS, MongoDB!",
    "author": {
       "name": "Foysal Ahmmed",
       "email": "pmfoysal@gmail.com",
@@ -21,15 +21,15 @@
       "Other"
    ],
    "keywords": [
-      "javascript",
       "reactjs",
       "nodejs",
-      "expressjs",
-      "mongodb"
+      "mongodb",
+      "manufacturer",
+      "website"
    ],
    "repository": {
       "type": "source-code",
-      "url": "https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-pmfoysal"
+      "url": "https://github.com/pmfoysal/phero-as12s"
    },
    "main": "index.js",
    "dependencies": {
