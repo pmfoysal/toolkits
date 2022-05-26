@@ -1,5 +1,5 @@
 {
-   "name": "start-react",
+   "name": "toolkits-client",
    "version": "0.1.0",
    "private": true,
    "homepage": "/",
@@ -7,7 +7,7 @@
    "readme": "README.md",
    "markdown": "github",
    "publisher": "@pmfoysal",
-   "description": "Basic Starter Project Setup for ReactJS!",
+   "description": "ToolKits - A Modern Tools Manufacturer Website Design using ReactJS, NodeJS, MongoDB!",
    "author": {
       "name": "Foysal Ahmmed",
       "email": "pmfoysal@gmail.com",
@@ -23,14 +23,14 @@
    ],
    "keywords": [
       "reactjs",
-      "starter-project",
-      "reactjs-project",
-      "reactjs-starter",
-      "reactjs-starter-project"
+      "nodejs",
+      "mongodb",
+      "manufacturer",
+      "website"
    ],
    "repository": {
       "type": "source-code",
-      "url": "https://github.com/pmfoysal/start-react"
+      "url": "https://github.com/pmfoysal/phero-as12c"
    },
    "cracoConfig": "src/configs/craco.config.js",
    "dependencies": {
