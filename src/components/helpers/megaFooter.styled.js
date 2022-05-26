@@ -9,7 +9,7 @@ export const MegaFooterContainer = styled.footer`
       grid-template-columns: repeat(6, 1fr);
       gap: 5rem;
 
-      @media screen and (max-width: 900px) {
+      @media screen and (max-width: 1100px) {
          grid-template-columns: repeat(3, 1fr);
       }
 
@@ -47,7 +47,11 @@ export const MegaFooterIconArea = styled.nav`
       color: ${({theme}) => theme.text.sub.para};
       max-width: 35rem;
 
-      @media screen and (max-width: 900px) {
+      @media screen and (max-width: 1100px) {
+         max-width: 90%;
+      }
+
+      @media screen and (max-width: 600px) {
          max-width: 100%;
       }
    }

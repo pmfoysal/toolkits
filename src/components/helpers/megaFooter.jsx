@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from '@shared/logo';
-import {MegaFooterContainer, MegaFooterIconArea} from './megaFooter.styled';
-import MainContainer from '@shared/mainContainer';
-import menuData from '@databases/menuData';
 import MegaMenu from './megaMenu';
+import menuData from '@databases/menuData';
+import MainContainer from '@shared/mainContainer';
+import {MegaFooterContainer, MegaFooterIconArea} from './megaFooter.styled';
 
 export default function MegaFooter() {
    function generateMenu(megaData) {
