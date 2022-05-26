@@ -18,7 +18,7 @@ export default function Home() {
          <HomeBlogs />
          <SectionTitle>customers review</SectionTitle>
          <HomeReviews />
-         {/* <HomeSubscribe /> */}
+         <HomeSubscribe />
       </React.Fragment>
    );
 }

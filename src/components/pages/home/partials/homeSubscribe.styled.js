@@ -16,6 +16,19 @@ export const HomeSubscribeContainer = styled.section`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
+      @media screen and (max-width: 650px) {
+         padding: 6rem;
+         gap: 2rem;
+      }
+
+      @media screen and (max-width: 500px) {
+         padding: 4rem;
+      }
+
+      @media screen and (max-width: 400px) {
+         padding: 3rem;
+      }
    }
 `;
 
@@ -24,6 +37,7 @@ export const SubscribeHead = styled.h1`
    color: ${({theme}) => theme.text.sub.title};
    opacity: 0.95;
    margin-top: 1.5rem;
+   text-align: center;
 `;
 
 export const SubscribeTitle = styled.h3`
@@ -31,6 +45,7 @@ export const SubscribeTitle = styled.h3`
    font-weight: 550;
    text-transform: uppercase;
    color: ${({theme}) => theme.text.sub.para};
+   text-align: center;
 
    span {
       line-height: inherit;
@@ -44,6 +59,7 @@ export const SubscribeTitle = styled.h3`
 export const SubscribePara = styled.p`
    color: ${({theme}) => theme.text.sub.para};
    margin-top: 1.5rem;
+   text-align: center;
 `;
 
 export const SubscribeForm = styled.div`
@@ -62,6 +78,12 @@ export const SubscribeForm = styled.div`
       color: ${({theme}) => theme.text.main.head};
       padding: 0 3rem;
       flex-grow: 1;
+
+      @media screen and (max-width: 650px) {
+         text-align: center;
+         height: 4.5rem;
+         margin-bottom: 2rem;
+      }
    }
 
    button {
@@ -70,5 +92,19 @@ export const SubscribeForm = styled.div`
       &:active {
          transform: unset !important;
       }
+
+      @media screen and (max-width: 650px) {
+         height: 4.5rem;
+      }
+   }
+
+   @media screen and (max-width: 650px) {
+      width: 100%;
+      flex-direction: column;
+      height: unset;
+      padding: 2rem 0;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2rem;
    }
 `;
