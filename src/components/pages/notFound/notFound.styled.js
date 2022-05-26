@@ -16,5 +16,11 @@ export const NotFoundContainer = styled.section`
          width: 75rem;
          height: auto;
       }
+
+      @media screen and (max-width: 900px) {
+         img {
+            width: 90%;
+         }
+      }
    }
 `;

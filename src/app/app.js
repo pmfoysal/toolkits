@@ -50,7 +50,7 @@ export default function App() {
                      </React.Fragment>
                   )}
                </Route>
-               {/* <Route path='*' element={<NotFound />} /> */}
+               <Route path='*' element={<NotFound />} />
             </Routes>
          </Suspense>
          <MegaFooter />
