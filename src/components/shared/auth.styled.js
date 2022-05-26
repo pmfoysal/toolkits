@@ -24,6 +24,21 @@ export const AuthContainer = styled.section`
       z-index: 3;
       gap: 20rem;
       min-height: calc(100vh - 14.8rem - 16rem);
+
+      @media screen and (max-width: 1350px) {
+         gap: 15rem;
+      }
+
+      @media screen and (max-width: 1300px) {
+         gap: 10rem;
+      }
+
+      @media screen and (max-width: 1200px) {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
    }
 `;
 
@@ -35,6 +50,10 @@ export const AuthImage = styled.div`
    img {
       width: 50rem;
       height: auto;
+
+      @media screen and (max-width: 600px) {
+         width: 100%;
+      }
    }
 `;
 
@@ -44,6 +63,21 @@ export const AuthForm = styled.div`
    justify-content: center;
    flex-direction: column;
    width: 40rem;
+
+   @media screen and (max-width: 600px) {
+      width: 100%;
+      padding: 0 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      width: 100%;
+      padding: 0 2rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      width: 100%;
+      padding: 0 1rem;
+   }
 `;
 
 export const AuthLogo = styled.img`
@@ -118,4 +152,5 @@ export const AuthForgetPara = styled.p`
    align-items: center;
    justify-content: space-between;
    gap: 1rem;
+   flex-wrap: wrap;
 `;

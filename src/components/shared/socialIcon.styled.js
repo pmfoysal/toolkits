@@ -32,4 +32,8 @@ export const SocialIconContainer = styled.span`
       opacity: 0.75;
       transform: scale(0.95);
    }
+
+   @media screen and (max-width: 500px) {
+      width: 10rem;
+   }
 `;
