@@ -15,6 +15,10 @@ export const HomeBannerContainer = styled.section`
       align-items: center;
       justify-content: center;
    }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem 0;
+   }
 `;
 
 export const HomeBannerContent = styled.article`
@@ -22,6 +26,19 @@ export const HomeBannerContent = styled.article`
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 10rem;
+
+   @media screen and (max-width: 1150px) {
+      display: flex;
+      flex-direction: column;
+      max-width: 80rem;
+      padding: 5rem 0;
+      justify-content: center;
+      align-items: center;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 3rem 0;
+   }
 `;
 
 export const HomeBannerImage = styled.article`
@@ -35,6 +52,20 @@ export const HomeBannerImage = styled.article`
       width: 100%;
       height: unset;
       object-fit: unset;
+   }
+
+   @media screen and (max-width: 1250px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 1150px) {
+      width: 75%;
+      justify-content: center;
+   }
+
+   @media screen and (max-width: 500px) {
+      width: 90%;
+      justify-content: center;
    }
 `;
 
@@ -51,6 +82,22 @@ export const HomeBannerHeading = styled.h1`
    opacity: 0.9;
    text-transform: uppercase;
    margin-bottom: 5rem;
+
+   @media screen and (max-width: 700px) {
+      font-size: 6rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      font-size: 5rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      font-size: 4.5rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      font-size: 4rem;
+   }
 `;
 
 export const HomeBannerTitle = styled.h3`
@@ -60,4 +107,12 @@ export const HomeBannerTitle = styled.h3`
    margin-bottom: 2rem;
    text-transform: uppercase;
    font-weight: 550;
+
+   @media screen and (max-width: 500px) {
+      font-size: 2.5rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      font-size: 2rem;
+   }
 `;
