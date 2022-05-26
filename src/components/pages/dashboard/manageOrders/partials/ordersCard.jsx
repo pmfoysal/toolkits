@@ -90,7 +90,7 @@ export default function OrdersCard({data, index, admin, refetch}) {
       <tr>
          <td>{serial}</td>
          <td>{title?.slice(0, 21) + '...'}</td>
-         <td>{trxId}</td>
+         <td>{trxId && trxId?.slice(0, 18) + '...'}</td>
          <td>{price}</td>
          <td>{quantity}</td>
          <td>{total}</td>

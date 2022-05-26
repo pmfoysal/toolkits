@@ -22,7 +22,7 @@ export default function CheckoutForm({price, name, email, id, refetch}) {
          toast.error(error.message);
       } else {
          const tId = toast.loading('Please Wait! Your Payment is Processing...');
-         const {error: intentError} = await stripe.confirmCardPayment(clientSecret, {
+         const {error: intentError, paymentIntent} = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                card: card,
                billing_details: {name, email},
@@ -37,7 +37,7 @@ export default function CheckoutForm({price, name, email, id, refetch}) {
             });
          } else {
             pmaxios
-               .put(`/order/${id}`, {status: 'pending'})
+               .put(`/order/${id}`, {status: 'pending', trxId: paymentIntent?.id})
                .then(res => {
                   if (res?.data?.acknowledged) {
                      toast.update(tId, {
