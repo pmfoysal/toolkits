@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
 export const BlogDetailsContainer = styled.section`
-   padding: 8rem 0;
+   padding: 8rem 0.5rem;
 `;
 
 export const BlogDetailsContent = styled.article`
    max-width: 120rem;
    margin: 0 auto;
-
-   figure {
-   }
 `;
 
 export const BlogDetailsImage = styled.figure`
@@ -31,6 +28,14 @@ export const BlogDetailsTitle = styled.h1`
    padding-top: 4rem;
    text-transform: none;
    color: ${({theme}) => theme.text.main.head};
+
+   @media screen and (max-width: 500px) {
+      text-align: center;
+   }
+
+   @media screen and (max-width: 400px) {
+      font-size: 3rem;
+   }
 `;
 
 export const BlogDetailsInfo = styled.div`
@@ -60,6 +65,12 @@ export const BlogDetailsInfo = styled.div`
             height: 0.95em;
          }
       }
+   }
+
+   @media screen and (max-width: 500px) {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
    }
 `;
 
