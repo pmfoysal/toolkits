@@ -166,7 +166,7 @@ async function runDatabase() {
          res.send(data);
       });
 
-      app.put('/product/:id', verifyUser, verifyAdmin, async (req, res) => {
+      app.put('/product/:id', verifyUser, async (req, res) => {
          const filter = {_id: ObjectId(req?.params?.id)};
          const options = {upsert: true};
          const data = {$set: req?.body};
