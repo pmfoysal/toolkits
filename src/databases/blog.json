@@ -1,0 +1,7 @@
+{
+   "author": "pmfoysal",
+   "date": 1653436800000,
+   "title": "Why you do not set products = [...] instead, you use the setProducts",
+   "image": "https://raw.githubusercontent.com/pmfoysal/data/main/images/blog-006.jpg",
+   "body": "Whoever worked or learned a bit of React probably knows that we should never change or update the state  directly. Rather we should always declare a new object const obj = {} and use setState(value) and let  react handle it, just like I did in the example below. But why?  <br />  <br />  <strong># React has three lifecycle phases:</strong> <br />  1. Mounting Phase: When the component is mounted for the first time. It has three lifecycle hooks that we  commonly use: <br />  i. constructor <br /> ii. render <br /> ii. componentDidMount  <br />  <br />  <strong># Updating Phase</strong> <br />  When the component is already mounted and a change in state or props has happened. It has two lifecycle  hooks that we commonly use: <br /> i. render <br /> ii. componentDidUpdate <br />  <br />  <strong># Unmounting Phase</strong> <br />  When a component is deleted. It has one lifecycle hook that we commonly use: i. componentWillUnmount  <br />  <br />  All these lifecycle hooks are called in order. If you don't know what a Stateless functional component is,  its a component that has no state or constructor or any lifecycle hooks and are fully controlled by their  parents. They only render a react component."
+}

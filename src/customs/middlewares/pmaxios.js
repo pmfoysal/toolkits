@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const pmaxios = axios.create({
-   baseURL: 'https://pmphas12.herokuapp.com',
+   baseURL: 'https://pms-toolkits-server.vercel.app',
 });
 
 pmaxios.interceptors.request.use(
