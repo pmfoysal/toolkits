@@ -3,10 +3,10 @@ import MainContainer from '@shared/mainContainer';
 import ReviewCard from './reviewCard';
 import useReviews from '@hooks/useReviews';
 import PageLoader from '@helpers/pageLoader';
-import {HomeReviewsCards, HomeReviewsContainer} from './homeReviews.styled';
+import { HomeReviewsCards, HomeReviewsContainer } from './homeReviews.styled';
 
 export default function HomeReviews() {
-   const {data: reviews, isLoading} = useReviews();
+   const { data: reviews, isLoading } = useReviews();
 
    return (
       <HomeReviewsContainer>

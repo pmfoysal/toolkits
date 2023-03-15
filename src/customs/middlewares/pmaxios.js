@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const pmaxios = axios.create({
-   baseURL: 'https://pms-toolkits-server.vercel.app',
+   baseURL: 'https://toolkits-1-z1642845.deta.app',
 });
 
 pmaxios.interceptors.request.use(
