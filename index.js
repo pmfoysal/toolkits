@@ -2,13 +2,13 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const {MongoClient, ServerApiVersion, ObjectId} = require('mongodb');
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 5000;
 const dbUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.d3xoe.mongodb.net/?retryWrites=true&w=majority`;
-const dbClient = new MongoClient(dbUri, {useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1});
+const dbClient = new MongoClient(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 const corsOptions = {
    origin: '*',
@@ -56,15 +56,15 @@ async function runDatabase() {
 
       function verifyUser(req, res, next) {
          const auth = req?.headers?.authorization;
-         const res1 = {status: 401, message: "You don't have Authorization to access this API!"};
-         const res2 = {status: 403, message: 'You have invalid Token to access this API!'};
+         const res1 = { status: 401, message: "You don't have Authorization to access this API!" };
+         const res2 = { status: 403, message: 'You have invalid Token to access this API!' };
 
          if (!auth) return res.status(401).send(res1);
          const token = auth.split(' ')[1];
 
          jwt.verify(token, process.env.ACCESS_TOKEN, async (error, decoded) => {
             if (error) return res.status(403).send(res2);
-            const user = await users.findOne({email: decoded?.email});
+            const user = await users.findOne({ email: decoded?.email });
             req.user = {
                email: decoded?.email,
                role: user?.role,
@@ -77,21 +77,21 @@ async function runDatabase() {
 
       app.post('/token', async (req, res) => {
          const user = req?.body;
-         const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '2d'});
-         res.send({token});
+         const token = jwt.sign(user, process.env.ACCESS_TOKEN, { expiresIn: '2d' });
+         res.send({ token });
       });
 
       // [===>>>) Stripes API Starts Here (<<<===] //
 
       app.post('/payment/intent', verifyUser, async (req, res) => {
-         const {price} = req?.body;
+         const { price } = req?.body;
          const amount = Number(price) * 100;
          const paymentIntent = await stripe.paymentIntents.create({
             amount,
             currency: 'usd',
             payment_method_types: ['card'],
          });
-         res.send({clientSecret: paymentIntent.client_secret});
+         res.send({ clientSecret: paymentIntent.client_secret });
       });
 
       // [===>>>) Users API Starts Here (<<<===] //
@@ -103,15 +103,15 @@ async function runDatabase() {
 
       app.get('/user/:email', async (req, res) => {
          const email = req?.params?.email;
-         const data = await users.findOne({email});
+         const data = await users.findOne({ email });
          res.send(data);
       });
 
       app.put('/user/:email', async (req, res) => {
          const email = req?.params?.email;
-         const options = {upsert: true};
-         const data = {$set: req?.body};
-         const result = await users.updateOne({email}, data, options);
+         const options = { upsert: true };
+         const data = { $set: req?.body };
+         const result = await users.updateOne({ email }, data, options);
          res.send(result);
       });
 
@@ -128,22 +128,22 @@ async function runDatabase() {
       });
 
       app.get('/blog/:id', async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const data = await blogs.findOne(filter);
          res.send(data);
       });
 
       app.put('/blog/:id', verifyUser, verifyAdmin, async (req, res) => {
          const id = req?.params?.id;
-         const options = {upsert: true};
-         const data = {$set: req?.body};
-         const filter = {_id: ObjectId(id)};
+         const options = { upsert: true };
+         const data = { $set: req?.body };
+         const filter = { _id: ObjectId(id) };
          const result = await blogs.updateOne(filter, data, options);
          res.send(result);
       });
 
       app.delete('/blog/:id', verifyUser, verifyAdmin, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const result = await blogs.deleteOne(filter);
          res.send(result);
       });
@@ -161,21 +161,21 @@ async function runDatabase() {
       });
 
       app.get('/product/:id', async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const data = await products.findOne(filter);
          res.send(data);
       });
 
       app.put('/product/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
-         const options = {upsert: true};
-         const data = {$set: req?.body};
+         const filter = { _id: ObjectId(req?.params?.id) };
+         const options = { upsert: true };
+         const data = { $set: req?.body };
          const result = await products.updateOne(filter, data, options);
          res.send(result);
       });
 
       app.delete('/product/:id', verifyUser, verifyAdmin, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const result = await products.deleteOne(filter);
          res.send(result);
       });
@@ -193,21 +193,21 @@ async function runDatabase() {
       });
 
       app.get('/review/:id', async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const data = await reviews.findOne(filter);
          res.send(data);
       });
 
       app.put('/review/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
-         const options = {upsert: true};
-         const data = {$set: req?.body};
+         const filter = { _id: ObjectId(req?.params?.id) };
+         const options = { upsert: true };
+         const data = { $set: req?.body };
          const result = await reviews.updateOne(filter, data, options);
          res.send(result);
       });
 
       app.delete('/review/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const result = await reviews.deleteOne(filter);
          res.send(result);
       });
@@ -225,21 +225,21 @@ async function runDatabase() {
       });
 
       app.get('/order/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const data = await orders.findOne(filter);
          res.send(data);
       });
 
       app.put('/order/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
-         const options = {upsert: true};
-         const data = {$set: req?.body};
+         const filter = { _id: ObjectId(req?.params?.id) };
+         const options = { upsert: true };
+         const data = { $set: req?.body };
          const result = await orders.updateOne(filter, data, options);
          res.send(result);
       });
 
       app.delete('/order/:id', verifyUser, async (req, res) => {
-         const filter = {_id: ObjectId(req?.params?.id)};
+         const filter = { _id: ObjectId(req?.params?.id) };
          const result = await orders.deleteOne(filter);
          res.send(result);
       });
@@ -251,7 +251,7 @@ async function runDatabase() {
 runDatabase().catch(console.dir);
 
 app.get('/', (req, res) => {
-   res.send({status: 200, port, message: 'PmPhAs12 Server is Running...'});
+   res.send({ status: 200, port, message: 'PmPhAs12 Server is Running...' });
 });
 
 app.listen(port, () => {
